@@ -1,4 +1,4 @@
-import { useState, useEffect, useImperativeHandle, forwardRef } from "react";
+import { useState, useImperativeHandle, forwardRef } from "react";
 import { Zoom, Bounce, Pulse } from "@gfazioli/react-animatecss";
 import styles from "./index.module.css";
 
@@ -9,15 +9,14 @@ let HeadPointApp = (props, ref) => {
   const [startThree, setStartThree] = useState(false);
 
   useImperativeHandle(ref, () => ({
-    // 方法：执行动画，暴露给点亮按钮
+    // startToAnimation,执行动画，暴露给点亮按钮
     startToAnimation: (passUserInfo) => {
-      console.log("父组件传值", passUserInfo);
+      console.log("传值用户数据", passUserInfo);
       setInfo(passUserInfo);
       setStartOne(true);
-    },
-  }));
+    }
+  }))
 
-  
   const showPic = () => {
     console.log("通知，截图开始~");
   };
@@ -33,7 +32,7 @@ let HeadPointApp = (props, ref) => {
       posW: "24px",
       posH: "24px",
     });
-    setTimeout(() => {
+   setTimeout(() => {
       showPic();
     }, 2000);
   };

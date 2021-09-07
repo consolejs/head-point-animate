@@ -3,7 +3,7 @@ import  {HeadPoint} from "./components/headPoint";
 import "./index.css";
 
 export default function App() {
-  const childRef = useRef();
+  const headPointRef = useRef();
   const userInfo = {
     src:
       "https://i.picsum.photos/id/603/50/50.jpg?hmac=_USXyljqpKjZi8WyEyPYPDm9bjzp_mHNUw" +
@@ -18,12 +18,12 @@ export default function App() {
 
   const updateChildState = () => {
 		// startToAnimation为头像组件暴露出的方法
-		childRef.current.startToAnimation(userInfo);
+		headPointRef.current.startToAnimation(userInfo);
 	}
 
   return (
     <div className="App">
-      <HeadPoint  ref={childRef} />
+      <HeadPoint ref={headPointRef} />
       <div className="lightup-btn">
         <span className="tx" onClick={updateChildState}>
           点亮画卷
