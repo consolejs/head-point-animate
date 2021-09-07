@@ -1,9 +1,9 @@
 import { useState } from "react";
 
 import styles from "./index.module.css";
-import { Fade, Zoom } from "@gfazioli/react-animatecss";
+import { Zoom, Bounce, Pulse } from "@gfazioli/react-animatecss";
 
-const Child = (info) => {
+const getHeadPoint = (info) => {
   return (
     <div
       style={{
@@ -28,8 +28,11 @@ const Child = (info) => {
 };
 
 export const HeadPoint = (props) => {
-  const [zoom, setZoom] = useState(false);
-  const [fade, setFade] = useState(false);
+
+  const [startOne, setStartOne] = useState(false);
+  const [startTwo, setStartTwo] = useState(false);
+  const [startThree, setStartThree] = useState(false);
+  const [starEnd, setStarEnd] = useState(false);
 
   const info = {
     src: "https://i.picsum.photos/id/603/50/50.jpg?hmac=_USXyljqpKjZi8WyEyPYPDm9bjzp_mHNUwh6goOkQG8",
@@ -39,30 +42,57 @@ export const HeadPoint = (props) => {
     posY: 80,
   };
 
+  const showPic = () => {
+    console.log('截图开始~')
+  }
+
   return (
     <div className="head-point_wrap">
-      <button onClick={() => setZoom(true)}>消失1</button>
-      <button onClick={() => setFade(true)}>消失2</button>
+      
+      <button onClick={() => setStartOne(true)}>点亮</button>
 
       <Zoom
-        animate={zoom}
-        mode="out"
+        animate={startOne}
+        direction="down"
+        duration="2s"
+        mode="in"
         as="div"
         block
-        onAnimationEnd={() => setZoom(true)}
+        onAnimationEnd={() => setStartTwo(true)}
       >
-        {Child(info)}
+        <Bounce
+          animate={startTwo}
+          duration="1.5s"
+          repeat="1"
+          onAnimationEnd={() => setStartThree(true)}
+          as="div"
+        >
+          <Pulse
+            animate={startThree}
+            duration="1.2s"
+            repeat="2"
+            onAnimationEnd={() => setStarEnd(true)}
+            as="div"
+          >
+               <Zoom
+                animate={starEnd}
+                mode="out"
+                delay="1s"
+                duration="2s"
+                as="div"
+                block
+                onAnimationEnd={()=>{
+                  showPic()
+                }}
+              >
+                {getHeadPoint(info)}
+              </Zoom>
+              
+          </Pulse>
+        </Bounce>
       </Zoom>
 
-      <Fade
-        animate={fade}
-        mode="out"
-        as="div"
-        block
-        onAnimationEnd={() => setFade(true)}
-      >
-        {Child(info)}
-      </Fade>
+     
     </div>
   );
 };
