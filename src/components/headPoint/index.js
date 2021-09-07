@@ -1,24 +1,25 @@
-import {useState, useEffect} from "react";
-import {Zoom, Bounce, Pulse} from "@gfazioli/react-animatecss";
+import { useState, useEffect, useImperativeHandle, forwardRef } from "react";
+import { Zoom, Bounce, Pulse } from "@gfazioli/react-animatecss";
 import styles from "./index.module.css";
 
-export const HeadPoint = (props) => {
-
-  const { userIno } = props;
-
-  const [info, setInfo] = useState(userIno);
-
+let HeadPointApp = (props, ref) => {
+  const [info, setInfo] = useState(false);
   const [startOne, setStartOne] = useState(false);
   const [startTwo, setStartTwo] = useState(false);
   const [startThree, setStartThree] = useState(false);
+
+  useImperativeHandle(ref, () => ({
+    // 方法：执行动画，暴露给点亮按钮
+    startToAnimation: (passUserInfo) => {
+      console.log("父组件传值", passUserInfo);
+      setInfo(passUserInfo);
+      setStartOne(true);
+    },
+  }));
+
   
-
-  useEffect(() => {
-    setStartOne(true);
-  }, [props]);
-
   const showPic = () => {
-    console.log("截图开始~");
+    console.log("通知，截图开始~");
   };
 
   const resPos = () => {
@@ -30,24 +31,24 @@ export const HeadPoint = (props) => {
       posX: "32px",
       posY: "32px",
       posW: "24px",
-      posH: "24px"
-    })
+      posH: "24px",
+    });
     setTimeout(() => {
       showPic();
-    }, 2000)
-  }
+    }, 2000);
+  };
 
   const getHeadPoint = (info) => {
     return (
       <div className={styles.head_point}>
         <div className={styles.cnt}>
           <div className={styles.pic}>
-            <img src={info.src} alt=""/>
+            <img src={info.src} alt="" />
           </div>
           <div className={styles.name}>{info.nickname}</div>
           <div className={styles.desc}>
             你是第<b>{info.number}</b>位点亮画卷，
-            <br/>
+            <br />
             欢迎一起回家
           </div>
         </div>
@@ -56,41 +57,51 @@ export const HeadPoint = (props) => {
   };
 
   return (
-    <div
-      className={styles.wrap}
-      style={{
-      top: info.posY,
-      left: info.posX,
-      width: info.posW,
-      height: info.posH
-    }}>
-      <Zoom
-        animate={startOne}
-        direction="down"
-        duration="2s"
-        mode="in"
-        as="div"
-        block
-        onAnimationEnd={() => setStartTwo(true)}>
-        <Bounce
-          animate={startTwo}
-          duration="1.5s"
-          repeat="1"
-          onAnimationEnd={() => setStartThree(true)}
-          as="div">
-          <Pulse
-            animate={startThree}
-            duration="1.2s"
-            repeat="2"
-            onAnimationEnd={() => {
-            setStartThree(false);
-            resPos();
+    <div>
+      {info && info.src ? (
+        <div
+          className={styles.wrap}
+          style={{
+            top: info.posY,
+            left: info.posX,
+            width: info.posW,
+            height: info.posH,
           }}
-            as="div">
-            {getHeadPoint(info)}
-          </Pulse>
-        </Bounce>
-      </Zoom>
+        >
+          <Zoom
+            animate={startOne}
+            direction="down"
+            duration="2s"
+            mode="in"
+            as="div"
+            block
+            onAnimationEnd={() => setStartTwo(true)}
+          >
+            <Bounce
+              animate={startTwo}
+              duration="1.5s"
+              repeat="1"
+              onAnimationEnd={() => setStartThree(true)}
+              as="div"
+            >
+              <Pulse
+                animate={startThree}
+                duration="1.2s"
+                repeat="2"
+                onAnimationEnd={() => {
+                  setStartThree(false);
+                  resPos();
+                }}
+                as="div"
+              >
+                {getHeadPoint(info)}
+              </Pulse>
+            </Bounce>
+          </Zoom>
+        </div>
+      ) : null}
     </div>
   );
 };
+
+export const HeadPoint = forwardRef(HeadPointApp);

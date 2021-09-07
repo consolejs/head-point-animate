@@ -1,10 +1,10 @@
+import {useRef} from 'react';
+import  {HeadPoint} from "./components/headPoint";
 import "./index.css";
 
-import { HeadPoint } from "./components/headPoint";
-
 export default function App() {
-
-  const userIno = {
+  const childRef = useRef();
+  const userInfo = {
     src:
       "https://i.picsum.photos/id/603/50/50.jpg?hmac=_USXyljqpKjZi8WyEyPYPDm9bjzp_mHNUw" +
       "h6goOkQG8",
@@ -16,11 +16,16 @@ export default function App() {
     posH: "160px",
   }
 
+  const updateChildState = () => {
+		// startToAnimation为头像组件暴露出的方法
+		childRef.current.startToAnimation(userInfo);
+	}
+
   return (
     <div className="App">
-      <HeadPoint userIno={userIno} />
+      <HeadPoint  ref={childRef} />
       <div className="lightup-btn">
-        <span  className="tx">
+        <span className="tx" onClick={updateChildState}>
           点亮画卷
         </span>
       </div>
