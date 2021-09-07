@@ -1,4 +1,4 @@
-import { useState, useImperativeHandle, forwardRef } from "react";
+import { ReactFragment, useState, useImperativeHandle, forwardRef } from "react";
 import { Zoom, Bounce, Pulse } from "@gfazioli/react-animatecss";
 import styles from "./index.module.css";
 
@@ -31,7 +31,10 @@ let HeadPointApp = (props, ref) => {
       posY: "32px",
       posW: "24px",
       posH: "24px",
+      locate: true,
     });
+
+    //2s后,启用截图
    setTimeout(() => {
       showPic();
     }, 2000);
@@ -39,27 +42,23 @@ let HeadPointApp = (props, ref) => {
 
   const getHeadPoint = (info) => {
     return (
-      <div className={styles.head_point}>
-        <div className={styles.cnt}>
-          <div className={styles.pic}>
-            <img src={info.src} alt="" />
-          </div>
-          <div className={styles.name}>{info.nickname}</div>
-          <div className={styles.desc}>
-            你是第<b>{info.number}</b>位点亮画卷，
-            <br />
-            欢迎一起回家
-          </div>
+      <div className={styles.cnt}>
+        <div className={styles.pic}><img src={info.src} alt="" /></div>
+        <div className={styles.name}>{info.nickname}</div>
+        <div className={styles.desc}>
+          你是第<b>{info.number}</b>位点亮画卷，
+          <br />
+          欢迎一起回家
         </div>
       </div>
     );
   };
 
   return (
-    <div>
-      {info && info.src ? (
+    <>
+      {info && info.src && info.nickname ? (
         <div
-          className={styles.wrap}
+          className={[`${ info.locate ?styles.locate : ''}`,`${styles.box}`].join(' ')}
           style={{
             top: info.posY,
             left: info.posX,
@@ -89,7 +88,9 @@ let HeadPointApp = (props, ref) => {
                 repeat="2"
                 onAnimationEnd={() => {
                   setStartThree(false);
-                  resPos();
+                  setTimeout(()=>{
+                    resPos();
+                  }, 1000)
                 }}
                 as="div"
               >
@@ -99,7 +100,7 @@ let HeadPointApp = (props, ref) => {
           </Zoom>
         </div>
       ) : null}
-    </div>
+    </>
   );
 };
 
