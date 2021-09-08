@@ -1,20 +1,16 @@
 import {useState, useRef} from 'react';
-import  {HeadPoint} from "./components/headPoint";
+import  {HeadPoint} from "./components/headPoint/index";
 import "./index.css";
 
 export default function App() {
   const [btnShow, setBtnShow] = useState(false);
+
   const headPointRef = useRef();
+
   const userInfo = {
-    src:
-      "https://i.picsum.photos/id/603/50/50.jpg?hmac=_USXyljqpKjZi8WyEyPYPDm9bjzp_mHNUw" +
-      "h6goOkQG8",
-    number: "2123",
-    nickname: "zhangsan",
-    posX: "50%",
-    posY: "45%",
-    posW: "60vw",
-    posH: "20vh",
+    src: "https://i.picsum.photos/id/690/200/200.jpg?hmac=DN6slU20ktSeMSXbM6U8BG_YHhebxEl3S70qNurkzk8",
+    number: "2223",
+    nickname: "Zhangsan",
   }
 
   const updateChildState = () => {
