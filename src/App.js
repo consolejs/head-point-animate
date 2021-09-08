@@ -9,7 +9,7 @@ export default function App() {
 
   const userInfo = {
     src: "https://i.picsum.photos/id/690/200/200.jpg?hmac=DN6slU20ktSeMSXbM6U8BG_YHhebxEl3S70qNurkzk8",
-    number: "2223",
+    number: "22238",
     nickname: "Zhangsan",
   }
 

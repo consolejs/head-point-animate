@@ -1,130 +1,148 @@
-.head_point_wrap{
-    position: fixed;
-    z-index: 19;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(17, 17, 19, 0.7);
-    transition: background .25s ease-in-out 0.25s;
+.head_point_wrap {
+  position: fixed;
+  z-index: 19;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(17, 17, 19, 0.7);
+  transition: background 0.25s ease-in-out 0.25s;
 }
 
-.head_point_cnt{
-    position: absolute;
-    top: 42%;
-    left: 50%;
-    z-index: 6;
-    width: 50vw;
-    width: 30wh;
-    text-align: center;
-    transition: all 1.25s ease-in-out 0.25s;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    .pic{
-        position: relative;
-        margin: 0 auto .25rem;
-        width: 2.04rem;
-        height: 2.04rem;
-        border-radius: 50%;
-        transform: translateZ(5px);
-        img{
-            display: block;
-            width: 2.04rem;
-            height: 2.04rem;
-            border-radius: 50%;
-            
-        }
-          &::after {
-            position: absolute;
-            top: 54%;
-            left: 54%;
-            z-index: -1;
-            display: block;
-            width: 190%;
-            height: 190%;
-            border-radius: 50%;
-            background-image: radial-gradient(circle at 48% 48%, rgba(163, 249, 255, 0.2) 22%, rgba(133, 237, 255, 0.08) 32%, transparent 50%);
-            background-image: radial-gradient(circle at 48% 48%, rgba(255, 255, 255, 0.2) 22%, rgba(255, 255, 255, 0.08) 32%, transparent 50%);
-            content: '';
-            transition: 2s ease-in-out;
-            transform-origin: 50%;
-            animation: glow 4s infinite;
-          }
-        
-          
+.head_point_cnt {
+  position: absolute;
+  top: 42%;
+  left: 50%;
+  z-index: 6;
+  width: 50vw;
+  height: 30vh;
+  text-align: center;
+  transition: all 1.25s ease-in-out 0.25s;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  .pic {
+    position: relative;
+    margin: 0 auto 0.25rem;
+    width: 2.04rem;
+    height: 2.04rem;
+    border-radius: 50%;
+    transform: translateZ(5px);
+    img {
+      display: block;
+      width: 2.04rem;
+      height: 2.04rem;
+      border-radius: 50%;
     }
-    .name{
-        margin-bottom: .22rem;
+    &::after {
+      position: absolute;
+      top: 54%;
+      left: 54%;
+      z-index: -1;
+      display: block;
+      width: 190%;
+      height: 190%;
+      border-radius: 50%;
+      background-image: radial-gradient(
+        circle at 48% 48%,
+        rgba(163, 249, 255, 0.2) 22%,
+        rgba(133, 237, 255, 0.08) 32%,
+        transparent 50%
+      );
+      background-image: radial-gradient(
+        circle at 48% 48%,
+        rgba(255, 255, 255, 0.2) 22%,
+        rgba(255, 255, 255, 0.08) 32%,
+        transparent 50%
+      );
+      content: "";
+      transition: 2s ease-in-out;
+      transform-origin: 50%;
+      animation: glow 4s infinite;
     }
-    .name, .desc{
-        font-size: 0.28rem;
-        line-height: .40rem;
+  }
+  .name {
+    margin-bottom: 0.22rem;
+  }
+  .name,
+  .desc {
+    font-size: 0.28rem;
+    line-height: 0.4rem;
+  }
+  .desc {
+    span {
+      color: #964f45;
+      display: inline-block;
+      min-width: 15vw;
     }
-    .desc{
-        span{
-            color:#964F45;
-            font-family: Consolas, Monaco, monospace;
-        }
-    }
+  }
 }
 
-.rotate{
-    animation: rotate 3s linear 1;
-
-    transform-style: preserve-3d;
+.rotate {
+  animation: rotate 3s linear 1;
+  transform-style: preserve-3d;
 }
 
 @keyframes rotate {
-    0%{
-        transform: rotateY(0deg) ;
-    }
-    25%{
-        transform: rotateY(90deg) ;
-    }
-    50%{
-        transform: rotateY(-30deg) ;
-    }
-    75%{
-        transform: rotateY(30deg) ;
-    }
-    100%{
-        transform: rotateY(0deg) ;
-    }
+  0% {
+    transform: rotateY(0deg);
+  }
+  25% {
+    transform: rotateY(90deg);
+  }
+  50% {
+    transform: rotateY(-30deg);
+  }
+  75% {
+    transform: rotateY(30deg);
+  }
+  100% {
+    transform: rotateY(0deg);
+  }
+}
+
+@keyframes glow {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.4);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
 }
 
 
+.example-enter {
+  opacity: 0.01;
+}
 
-  @keyframes glow {
-    0% {
-      transform: translate(-50%, -50%) scale(1);
-    }
-    50% {
-      transform: translate(-50%, -50%) scale(1.4);
-    }
-    100% {
-      transform: translate(-50%, -50%) scale(1);
-    }
-  }
+.example-enter.example-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
 
+.example-leave {
+  opacity: 1;
+}
 
-.show-enter {
-    opacity: 0.01;
-    transform: scale(0.9) translateY(50%);
-  }
-  .show-enter-active {
-    opacity: 1;
-    transition: all 3000ms ease-out;
-    transform: scale(1) translateY(0%);
-  }
-  .show-exit {
-    opacity: 1;
-    transform: scale(1) translateY(0%);
-  }
-  .show-exit-active {
-    opacity: 0.01;
-    transition: all 2000ms ease-out;
-    transform: scale(0.9) translateY(50%);
-  }
-  
-  
+.example-leave.example-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}
 
-  
+//enter是入场前的刹那（点击按钮），appear指页面第一次加载前的一刹那（自动）
+.fade-enter, .fade-appear {
+  opacity: .3;
+}
+
+//入场动画执行完毕后，保持状态
+.fade-enter-done {
+  opacity: 1;
+  transition: opacity 0.4s ease-in;
+}
+
+.btn{
+  position: absolute;
+  bottom: 0;
+  z-index: 19;
+}

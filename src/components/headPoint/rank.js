@@ -4,7 +4,7 @@ export const Rank = (props) => {
   let [num, setNum] = useState(0);
   let {count} = props;
   const step = useRef(null);
-  const during = useRef(20);
+  const during = useRef(40);
   useEffect(() => {
     let raf = null;
     if (num < count) {
