@@ -1,21 +1,68 @@
 .my-avatar-point {
     position: absolute;
     z-index: 9;
-    display: flex;
-    justify-content: center;
-    box-sizing: border-box;
-    padding-top: 0.02rem;
     width: 1.04rem;
     height: 1.15rem;
-    background-image: url(../../static/avatar_point_bg.png);
-    background-image: -webkit-image-set( url(../../static/avatar_point_bg.png) 1x, url(../../static/avatar_point_bg@2x.png) 2x, url(../../static/avatar_point_bg@3x.png) 3x);
-    background-image: image-set( url(../../static/avatar_point_bg.png) 1x, url(../../static/avatar_point_bg@2x.png) 2x, url(../../static/avatar_point_bg@3x.png) 3x);
-    animation: avatarFade .4s 0s 1, avatarBounce 1s .2s 1;/*依次: 动画名字， 动画播放时间，延迟时间，播放次数*/
+    .pop{
+        position: absolute;
+        top: -0.7rem;
+        left: 50%;
+        z-index: 3;
+        margin-left: -0.86rem;
+        padding-right: .25rem;
+        width: 1.47rem;
+        height: 0.51rem;
+        overflow: hidden;
+        background-image: url(../../static/avatar_point_pop.png);
+        background-position: center;
+        background-image: image-set( url(../../static/avatar_point_pop.png) 1x, url(../../static/avatar_point_pop@2x.png) 2x);
+        background-image: -webkit-image-set( url(../../static/avatar_point_pop.png) 1x, url(../../static/avatar_point_pop@2x.png) 2x);
+        background-size: 100% auto;
+        background-repeat: no-repeat;
+        color: #FFF;
+        font-size: .22rem;
+        line-height: 0.48rem;
+        text-align: center;
+        &::before{
+            content: ""; 
+            display: block;
+            position: absolute; 
+            right: .18rem;
+            top: .12rem;
+            width: .23rem;
+            height: .19rem;
+            overflow: hidden;
+            background-image: url(../../static/avatar_point_arr.png);
+            background-position: center;
+            background-image: image-set( url(../../static/avatar_point_arr.png) 1x, url(../../static/avatar_point_arr@2x.png) 2x);
+            background-image: -webkit-image-set( url(../../static/avatar_point_arr.png) 1x, url(../../static/avatar_point_arr@2x.png) 2x);
+            background-size: 100% auto;
+            background-repeat: no-repeat;
+            
+        }
+    }
+    .avatar{
+        position: relative;
+        z-index: 2;
+        display: flex;
+        justify-content: center;
+        box-sizing: border-box;
+        padding-top: 0.02rem;
+        width: 1.04rem;
+        height: 1.15rem;
+        background-image: url(../../static/avatar_point_bg.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+        background-image: image-set( url(../../static/avatar_point_bg.png) 1x, url(../../static/avatar_point_bg@2x.png) 2x, url(../../static/avatar_point_bg@3x.png) 3x);
+        background-image: -webkit-image-set( url(../../static/avatar_point_bg.png) 1x, url(../../static/avatar_point_bg@2x.png) 2x, url(../../static/avatar_point_bg@3x.png) 3x);
+        animation: avatarFade .4s 0s 1, avatarBounce 1s .2s 1;/*依次: 动画名字， 动画播放时间，延迟时间，播放次数*/
+    }
     .pic {
+        overflow: hidden;
         width: 1rem;
         height: 1rem;
         border-radius: 50%;
-        overflow: hidden;
         img {
             display: block;
             width: 1rem;
@@ -23,6 +70,7 @@
             border-radius: 50%;
         }
     }
+    
 }
 
 @keyframes avatarFade {
@@ -52,17 +100,17 @@
     20%,
     53%,
     to {
-        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
         transform: translate3d(0, 0, 0);
+        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
     }
     40%,
     43% {
+        transform: translate3d(0, -6px, 0) scaleY(1.1);
         animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
-        transform: translate3d(0, -10px, 0) scaleY(1.1);
     }
     70% {
+        transform: translate3d(0, -3px, 0) scaleY(1.05);
         animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
-        transform: translate3d(0, -4px, 0) scaleY(1.05);
     }
     80% {
         transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -78,17 +126,17 @@
     20%,
     53%,
     to {
-        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
         transform: translate3d(0, 0, 0);
+        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
     }
     40%,
     43% {
+        transform: translate3d(0, -8px, 0) scaleY(1.1);
         animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
-        transform: translate3d(0, -10px, 0) scaleY(1.1);
     }
     70% {
-        animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
         transform: translate3d(0, -4px, 0) scaleY(1.05);
+        animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
     }
     80% {
         transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
