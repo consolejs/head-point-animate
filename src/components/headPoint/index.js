@@ -15,6 +15,8 @@ let HeadPointApp = (props, ref) => {
   const [userInfo, setUserInfo] = useState(false);
   const [inProp, setInProp] = useState(false);
 
+  const nodeRef = useRef(null);
+
   useImperativeHandle(ref, () => ({
     // startToAnimation,执行动画，暴露给点亮按钮
     startToAnimation: (passUserInfo) => {
@@ -41,6 +43,7 @@ let HeadPointApp = (props, ref) => {
             in={inProp}
             classNames="fade"
             timeout={100}
+            nodeRef={nodeRef}
             onEntered={(el) => {
               // 3s,销毁
               setTimeout(()=>{

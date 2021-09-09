@@ -150,3 +150,33 @@
   bottom: 0;
   z-index: 19;
 }
+
+
+.fd-enter { 
+  opacity: 0; 
+ 
+} 
+ 
+.fd-enter-active { 
+  opacity: 1; 
+  transition: opacity 1500ms; 
+} 
+ 
+.fd-exit { 
+  opacity: 1; 
+} 
+ 
+.fd-exit-active { 
+  opacity: 0; 
+  transition: opacity 500ms; 
+  
+} 
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
