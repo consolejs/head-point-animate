@@ -25,7 +25,9 @@
     width: 2.04rem;
     height: 2.04rem;
     border-radius: 50%;
-    transform: translateZ(5px);
+    // transform: translateZ(10px);
+    // background: linear-gradient(270deg,#e14e58, #3a2462, #5050cd);
+    // filter: blur(8px);
     img {
       display: block;
       width: 2.04rem;
@@ -41,18 +43,19 @@
       width: 190%;
       height: 190%;
       border-radius: 50%;
-      background-image: radial-gradient(
-        circle at 48% 48%,
-        rgba(163, 249, 255, 0.2) 22%,
-        rgba(133, 237, 255, 0.08) 32%,
-        transparent 50%
-      );
-      background-image: radial-gradient(
-        circle at 48% 48%,
-        rgba(255, 255, 255, 0.2) 22%,
-        rgba(255, 255, 255, 0.08) 32%,
-        transparent 50%
-      );
+      // background-image: radial-gradient(
+      //   circle at 48% 48%,
+      //   rgba(8, 231, 247, 0.2) 2%,
+      //   rgba(248, 14, 64, 0.08) 32%,
+      //   rgba(132, 9, 247, 0.08) 62%,
+      //   transparent 50%
+      // );
+      // background-image: radial-gradient(
+      //   circle at 48% 48%,
+      //   rgba(255, 255, 255, 0.2) 22%,
+      //   rgba(255, 255, 255, 0.08) 32%,
+      //   transparent 50%
+      // );
       content: "";
       transition: 2s ease-in-out;
       transform-origin: 50%;
@@ -69,15 +72,16 @@
   }
   .desc {
     span {
-      color: #964f45;
       display: inline-block;
       min-width: 15vw;
+      color: #964f45;
     }
   }
 }
 
 .rotate {
   animation: rotate 3s linear 1;
+
   transform-style: preserve-3d;
 }
 

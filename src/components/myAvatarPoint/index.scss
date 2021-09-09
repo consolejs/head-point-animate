@@ -1,0 +1,100 @@
+.my-avatar-point {
+    position: absolute;
+    z-index: 9;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    padding-top: 0.02rem;
+    width: 1.04rem;
+    height: 1.15rem;
+    background-image: url(../../static/avatar_point_bg.png);
+    background-image: -webkit-image-set( url(../../static/avatar_point_bg.png) 1x, url(../../static/avatar_point_bg@2x.png) 2x, url(../../static/avatar_point_bg@3x.png) 3x);
+    background-image: image-set( url(../../static/avatar_point_bg.png) 1x, url(../../static/avatar_point_bg@2x.png) 2x, url(../../static/avatar_point_bg@3x.png) 3x);
+    animation: avatarFade .4s 0s 1, avatarBounce 1s .2s 1;/*依次: 动画名字， 动画播放时间，延迟时间，播放次数*/
+    .pic {
+        width: 1rem;
+        height: 1rem;
+        border-radius: 50%;
+        overflow: hidden;
+        img {
+            display: block;
+            width: 1rem;
+            height: 1rem;
+            border-radius: 50%;
+        }
+    }
+}
+
+@keyframes avatarFade {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@-webkit-keyframes avatarFade {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes avatarBounce {
+    from,
+    20%,
+    53%,
+    to {
+        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+        transform: translate3d(0, 0, 0);
+    }
+    40%,
+    43% {
+        animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+        transform: translate3d(0, -10px, 0) scaleY(1.1);
+    }
+    70% {
+        animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+        transform: translate3d(0, -4px, 0) scaleY(1.05);
+    }
+    80% {
+        transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+        transform: translate3d(0, 0, 0) scaleY(0.95);
+    }
+    90% {
+        transform: translate3d(0, -2px, 0) scaleY(1.02);
+    }
+}
+
+@-webkit-keyframes avatarBounce {
+    from,
+    20%,
+    53%,
+    to {
+        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+        transform: translate3d(0, 0, 0);
+    }
+    40%,
+    43% {
+        animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+        transform: translate3d(0, -10px, 0) scaleY(1.1);
+    }
+    70% {
+        animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+        transform: translate3d(0, -4px, 0) scaleY(1.05);
+    }
+    80% {
+        transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+        transform: translate3d(0, 0, 0) scaleY(0.95);
+    }
+    90% {
+        transform: translate3d(0, -2px, 0) scaleY(1.02);
+    }
+}
