@@ -1,0 +1,247 @@
+<html><head>
+    <meta charset="utf-8">
+    <title>多彩的黑洞</title>
+    
+    <style>
+        @charset "utf-8";
+                                                                body {
+                                                                	display: flex;
+                                                                	align-items: center;
+                                                                	flex-direction: column;
+                                                                	justify-content: center;
+                                                                	min-height: 100vh;
+                                                                  background-color: #2A3137;  font-family: "Montserrat", sans-serif;
+                                                                	}
+
+                                                                * {
+                                                                  box-sizing: content-box;
+                                                                	font-family: "Montserrat", sans-serif !important;
+                                                                }
+
+                                                                .outer-circle {
+                                                                  position: relative;
+                                                                  width: 200px;
+                                                                  height: 200px;
+                                                                  border-radius: 50%;
+                                                                  background: linear-gradient(270deg,#e14e58, #3a2462, #5050cd);
+                                                                  filter: blur(8px);
+                                                                  animation: rotate2 2.5s linear infinite;
+                                                                  zoom: .8;
+                                                                }
+
+                                                                .outer-circle span {
+                                                                  position: absolute;
+                                                                  width: 200px;
+                                                                  height: 200px;
+                                                                  border-radius: 50%;
+                                                                  background:  linear-gradient(270deg,#e14e58, #3a2462, #5050cd);
+                                                                }
+
+                                                                span:nth-child(1) {
+                                                                  filter: blur(5px);
+                                                                }
+
+                                                                span:nth-child(2) {
+                                                                  filter: blur(10px);
+                                                                }
+
+                                                                span:nth-child(3) {
+                                                                  filter: blur(25px);
+                                                                }
+
+                                                                span:nth-child(4) {
+                                                                  filter: blur(150px);
+                                                                }
+
+                                                                .inner-circle {
+                                                                  position: absolute;
+                                                                  top: 10px;
+                                                                  left: 10px;
+                                                                  z-index: 9;
+                                                                  width: 180px;
+                                                                  height: 180px;
+                                                                  border-radius: 50%;
+                                                                  background: black;
+                                                                }
+
+                                                                @keyframes rotate3 {
+                                                                  0% {
+                                                                    filter: hue-rotate(0deg);
+                                                                  }
+                                                                  100% {
+                                                                    filter: hue-rotate(360deg);
+                                                                  }
+                                                                }
+
+                                                                @keyframes rotate3 {
+                                                                  0% {
+                                                                    zoom: 1;
+                                                                  }
+                                                                  50% {
+                                                                    zoom: 1.3;
+                                                                  }
+                                                                  
+                                                                  100% {
+                                                                    zoom: 1;
+                                                                  }
+                                                                }
+
+
+
+                                                                body {
+                                                  display: flex;
+                                                  justify-content: center;
+                                                  background: linear-gradient(to top, #283e51 0%, #0a2342 40%, #111 100%);
+                                                  background-attachment: fixed;
+                                                  background-repeat: no-repeat;
+                                                }
+
+                                                .moon {
+                                                  position: relative;
+                                                  top: 200px;
+                                                  width: 100px;
+                                                  height: 100px;
+                                                  border-radius: 50%;
+                                                  background-image: radial-gradient(circle at 60% 60%, transparent 50%, white 120%), radial-gradient(circle at 40% 40%, transparent 50%, black 110%), radial-gradient(circle at top left, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.75) 100%), radial-gradient(circle at bottom, rgba(10, 35, 66, 0.4) 30%, transparent 70%), radial-gradient(circle at bottom, rgba(40, 62, 81, 0.15) 0%, rgba(10, 35, 66, 0.2) 100%), radial-gradient(circle at top left, rgba(171, 227, 255, 0.75) 0%, rgba(0, 0, 0, 0.5) 90%), linear-gradient(to left, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.1) 100%);
+                                                  background-position: 50%, 50%, 50%, 50%, 50%, 50%, 50%;
+                                                  background-size: 180%, 100%, 100%, 100%, 100%, 100%, 100%;
+                                                }
+                                                .moon::after {
+                                                  position: absolute;
+                                                  top: 50%;
+                                                  left: 50%;
+                                                  z-index: -1;
+                                                  display: block;
+                                                  width: 240%;
+                                                  height: 240%;
+                                                  border-radius: 50%;
+                                                  background-image: radial-gradient(circle at 48% 48%, rgba(163, 249, 255, 0.2) 22%, rgba(133, 237, 255, 0.08) 32%, transparent 50%);
+                                                  content: '';
+                                                  transition: 2s ease-in-out;
+                                                  transform-origin: 50%;
+                                                  animation: glow 4s infinite;
+                                                }
+                                                .moon::before {
+                                                  position: absolute;
+                                                  z-index: 0;
+                                                  display: block;
+                                                  width: 100%;
+                                                  height: 100%;
+                                                  border-radius: 50%;
+                                                  background-image: radial-gradient(rgba(0, 0, 0, 0.1) 32%, rgba(0, 0, 0, 0.25) 50%, transparent 0%), radial-gradient(rgba(0, 0, 0, 0.1) 32%, rgba(0, 0, 0, 0.25) 50%, transparent 0%), radial-gradient(rgba(0, 0, 0, 0.1) 32%, rgba(0, 0, 0, 0.25) 50%, transparent 0%), radial-gradient(rgba(0, 0, 0, 0.1) 32%, rgba(0, 0, 0, 0.25) 50%, transparent 0%), radial-gradient(rgba(0, 0, 0, 0.1) 32%, rgba(0, 0, 0, 0.25) 50%, transparent 0%), radial-gradient(rgba(0, 0, 0, 0.1) 42%, rgba(0, 0, 0, 0.25) 50%, transparent 0%), radial-gradient(rgba(0, 0, 0, 0.1) 42%, rgba(0, 0, 0, 0.25) 50%, transparent 0%), radial-gradient(rgba(0, 0, 0, 0.1) 44%, rgba(0, 0, 0, 0.25) 50%, transparent 0%), radial-gradient(rgba(0, 0, 0, 0.25) 44%, rgba(0, 0, 0, 0.25) 50%, transparent 0%), radial-gradient(rgba(0, 0, 0, 0.1) 44%, rgba(0, 0, 0, 0.25) 50%, transparent 0%), radial-gradient(rgba(0, 0, 0, 0.1) 44%, rgba(0, 0, 0, 0.25) 50%, transparent 0%), radial-gradient(rgba(0, 0, 0, 0.6) 44%, rgba(0, 0, 0, 0.6) 50%, transparent 0%), radial-gradient(rgba(0, 0, 0, 0.6) 44%, rgba(0, 0, 0, 0.6) 50%, transparent 0%), radial-gradient(rgba(0, 0, 0, 0.4) 45%, rgba(0, 0, 0, 0.5) 50%, transparent 0%), radial-gradient(rgba(0, 0, 0, 0.4) 45%, rgba(0, 0, 0, 0.5) 50%, transparent 0%), radial-gradient(rgba(0, 0, 0, 0.4) 47%, rgba(0, 0, 0, 0.5) 50%, transparent 0%), radial-gradient(rgba(0, 0, 0, 0.4) 47%, rgba(0, 0, 0, 0.5) 50%, transparent 0%), radial-gradient(rgba(0, 0, 0, 0.4) 47%, rgba(0, 0, 0, 0.5) 50%, transparent 0%);
+                                                  background-position: 50% 25%, 25% 50%, 20% 5%, -5% 25%, 25% -5%, 45% 3%, 3% 55%, 15% 20%,  22% 14%,  -25% -15%,  105% 28%,  105% -32%,  52% 130%,  110% 42%, 82% 80%, 133% 110%, -40% 116%, 103% 86%, 116% -36%;
+                                                  background-size: 16% 16%, 16% 16%, 16% 16%, 20% 20%, 20% 20%, 25% 25%, 25% 25%, 40% 40%,  40% 40%,  45% 45%, 45% 45%, 50% 50%, 50% 50%, 50% 50%, 50% 50%, 60% 60%, 60% 60%, 75% 75%, 75% 75%;
+                                                  background-repeat: repeat-y,  repeat-x,  repeat,  repeat,  repeat,  repeat,  repeat,  repeat,  repeat,  repeat, no-repeat, no-repeat, no-repeat,  no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+                                                  content: '';
+                                                  opacity: 0.18;
+                                                }
+
+                                                @keyframes glow {
+                                                  0% {
+                                                    transform: translate(-50%, -50%) scale(1);
+                                                  }
+                                                  50% {
+                                                    transform: translate(-50%, -50%) scale(1.4);
+                                                  }
+                                                  100% {
+                                                    transform: translate(-50%, -50%) scale(1);
+                                                  }
+                                                }
+
+                                                /* 22323 */
+
+                                                .rotate-wrap {
+                                                    position: relative;
+                                                    margin: 100px;
+                                                    width: 100px;
+                                                    height: 100px;
+                                                    animation: rotate 3s linear infinite;
+
+                                                    transform-style: preserve-3d;
+                                                }
+                                                .rotate-wrap:hover {
+                                                    animation-play-state: paused;
+                                                }
+                                                .rotate-wrap .front, .rotate-wrap .reverse{
+                                                    width: 100px;
+                                                    height: 100px;
+                                                    background-size: cover;
+                                                }
+                                                .rotate-wrap .front{
+                                                    position: absolute;
+                                                    top: 0;
+                                                    right: 0;
+                                                    bottom: 0;
+                                                    left: 0;
+                                                    background-image: url('https://picsum.photos/id/935/100/100');
+                                                }
+                                                .rotate-wrap .reverse{
+                                                    background-image: url('https://i.picsum.photos/id/690/200/200.jpg?hmac=DN6slU20ktSeMSXbM6U8BG_YHhebxEl3S70qNurkzk8');
+                                                }
+
+                                                .circle{
+                                                    border-radius: 50%;
+                                                }
+                                                .line{
+                                                    position:absolute;
+                                                    top: 0;
+                                                    left: 50%;
+                                                    width: 1px;
+                                                    height: 200px;
+                                                    background: red;
+                                                    transform: translateZ(0px);
+                                                }
+
+                                                @keyframes rotate {
+                                                    0%{
+                                                        transform: rotateY(0deg) ;
+                                                    }
+                                                    25%{
+                                                        transform: rotateY(90deg) ;
+                                                    }
+                                                    50%{
+                                                        transform: rotateY(-30deg) ;
+                                                    }
+                                                    75%{
+                                                        transform: rotateY(30deg) ;
+                                                    }
+                                                    100%{
+                                                        transform: rotateY(0deg) ;
+                                                    }
+                                                }
+
+
+
+    </style>
+    
+    </head>
+    <body>
+    
+    <div class="outer-circle">
+        <!-- <div class="inner-circle"></div> -->
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    
+    <div class="moon"></div>
+
+
+    <div style="height: 200px;"></div>
+
+    <div class="rotate-wrap">
+      <div class="front circle" style="transform: translateZ(5px);"></div>
+      <div class="reverse circle"></div>
+  </div>
+
+  <div class="rotate-wrap">
+    <div class="line"></div>
+    <div class="front" style="transform: translateZ(5px);"></div>
+    <div class="reverse" style="transform: translateZ(-5px);"></div>
+</div>
+
+  
+    
+    
+    </body></html>
