@@ -42,11 +42,10 @@ let HeadPointApp = (props, ref) => {
             classNames="fade"
             timeout={100}
             onEntered={(el) => {
-              console.log(11);
-            }}
-            onExited={() => {
-              setInProp(!inProp);
-              console.log(22);
+              // 3s,销毁
+              setTimeout(()=>{
+                setUserInfo(false);
+              },3000)
             }}
             unmountOnExit
           >
