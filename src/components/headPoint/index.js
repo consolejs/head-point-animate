@@ -62,8 +62,8 @@ let HeadPointApp = (props, ref) => {
           nodeRef={nodeRef}
           onEntered={() => {
             setTimeout(() => {
-              console.log(0, "onEntered");
-              setUserInfo(!userInfo);
+              // console.log(0, "onEntered");
+              // setUserInfo(!userInfo);
             }, 3000);
           }}
         >
@@ -81,7 +81,14 @@ let HeadPointApp = (props, ref) => {
         </Transition>
         <div className="head_point_cnt">
           <div className="pic">
-            <img src={info.src} alt="" />
+          <img className="back" src={info.src} alt="" />
+          <img className="middle" src={info.src} style={{ 'transform':'translateZ(1px)' }} alt="" />
+          <img className="middle" src={info.src} style={{ 'transform':'translateZ(2px)' }} alt="" />
+          <img className="middle" src={info.src} style={{ 'transform':'translateZ(3px)' }} alt="" />
+          <img className="middle" src={info.src} style={{ 'transform':'translateZ(4px)' }} alt="" />
+          <img className="middle" src={info.src} style={{ 'transform':'translateZ(5px)' }} alt="" />
+          <img className="middle" src={info.src} style={{ 'transform':'translateZ(6px)' }} alt="" />
+          <img className="front" src={info.src} alt="" />
           </div>
           <CSSTransition
             in={inProp}
@@ -97,7 +104,6 @@ let HeadPointApp = (props, ref) => {
             unmountOnExit
           >
             {(state) => {
-              console.log(1, state);
               return (
                 <div ref={nodeRef}>
                   <div className="name">{info.nickname}</div>
