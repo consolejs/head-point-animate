@@ -63,7 +63,7 @@ let HeadPointApp = (props, ref) => {
           onEntered={() => {
             setTimeout(() => {
               // console.log(0, "onEntered");
-              // setUserInfo(!userInfo);
+              setUserInfo(!userInfo);
             }, 3000);
           }}
         >
@@ -82,12 +82,12 @@ let HeadPointApp = (props, ref) => {
         <div className="head_point_cnt">
           <div className="pic">
           <img className="back" src={info.src} alt="" />
-          <img className="middle" src={info.src} style={{ 'transform':'translateZ(1px)' }} alt="" />
-          <img className="middle" src={info.src} style={{ 'transform':'translateZ(2px)' }} alt="" />
-          <img className="middle" src={info.src} style={{ 'transform':'translateZ(3px)' }} alt="" />
-          <img className="middle" src={info.src} style={{ 'transform':'translateZ(4px)' }} alt="" />
-          <img className="middle" src={info.src} style={{ 'transform':'translateZ(5px)' }} alt="" />
-          <img className="middle" src={info.src} style={{ 'transform':'translateZ(6px)' }} alt="" />
+          <img className="middle m1" src={info.src} alt="" />
+          <img className="middle m2" src={info.src} alt="" />
+          <img className="middle m3" src={info.src} alt="" />
+          <img className="middle m4" src={info.src} alt="" />
+          <img className="middle m5" src={info.src} alt="" />
+          <img className="middle m6" src={info.src} alt="" />
           <img className="front" src={info.src} alt="" />
           </div>
           <CSSTransition
@@ -117,7 +117,7 @@ let HeadPointApp = (props, ref) => {
     );
   };
 
-  return <>{userInfo && userInfo.src  ? getDomStr(userInfo) : null}</>;
+  return <>{userInfo && userInfo.nickname  ? getDomStr(userInfo) : null}</>;
 };
 
 export const HeadPoint = forwardRef(HeadPointApp);

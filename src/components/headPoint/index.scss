@@ -55,6 +55,24 @@
       left: 0;
       z-index: 3;
       transform: translateZ(1px);
+      &.m1{
+        transform: translateZ(1px);
+      }
+      &.m2{
+        transform: translateZ(2px);
+      }
+      &.m3{
+        transform: translateZ(3px);
+      }
+      &.m4{
+        transform: translateZ(4px);
+      }
+      &.m5{
+        transform: translateZ(5px);
+      }
+      &.m6{
+        transform: translateZ(6px);
+      }
     }
     .back{
       transform: translateZ(-1px);
