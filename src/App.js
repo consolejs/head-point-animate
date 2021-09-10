@@ -24,7 +24,7 @@ export default function App() {
   return (
     <div className="App">
       <HeadPoint ref={headPointRef} />
-      <MyAvatarPoint /> 
+      {/* <MyAvatarPoint />  */}
       <div className="lightup-btn">
         <span className="tx" onClick={updateChildState}  style={{display: btnShow ? 'none' : 'block'}}>
           点亮画卷

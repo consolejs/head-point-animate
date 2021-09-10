@@ -3,8 +3,14 @@
   z-index: 19;
   width: 100vw;
   height: 100vh;
-  background: rgba(17, 17, 19, 0.7);
-  transition: background 0.25s ease-in-out 0.25s;
+  .mask{
+    position:absolute;
+    z-index: 4;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(17, 17, 19, 0.8);
+    opacity: 0;
+  }
 }
 
 .head_point_cnt {
@@ -28,6 +34,7 @@
     // transform: translateZ(10px);
     // background: linear-gradient(270deg,#e14e58, #3a2462, #5050cd);
     // filter: blur(8px);
+    animation: headRotate 3s linear 1;
     img {
       display: block;
       width: 2.04rem;
@@ -43,23 +50,23 @@
       width: 190%;
       height: 190%;
       border-radius: 50%;
-      // background-image: radial-gradient(
-      //   circle at 48% 48%,
-      //   rgba(8, 231, 247, 0.2) 2%,
-      //   rgba(248, 14, 64, 0.08) 32%,
-      //   rgba(132, 9, 247, 0.08) 62%,
-      //   transparent 50%
-      // );
-      // background-image: radial-gradient(
-      //   circle at 48% 48%,
-      //   rgba(255, 255, 255, 0.2) 22%,
-      //   rgba(255, 255, 255, 0.08) 32%,
-      //   transparent 50%
-      // );
+      background-image: radial-gradient(
+        circle at 48% 48%,
+        rgba(8, 231, 247, 0.2) 2%,
+        rgba(248, 14, 64, 0.08) 32%,
+        rgba(132, 9, 247, 0.08) 62%,
+        transparent 50%
+      );
+      background-image: radial-gradient(
+        circle at 48% 48%,
+        rgba(255, 255, 255, 0.2) 22%,
+        rgba(255, 255, 255, 0.08) 32%,
+        transparent 50%
+      );
       content: "";
       transition: 2s ease-in-out;
       transform-origin: 50%;
-      animation: glow 4s infinite;
+      animation: headGlow 4s infinite;
     }
   }
   .name {
@@ -79,13 +86,7 @@
   }
 }
 
-.rotate {
-  animation: rotate 3s linear 1;
-
-  transform-style: preserve-3d;
-}
-
-@keyframes rotate {
+@keyframes headRotate {
   0% {
     transform: rotateY(0deg);
   }
@@ -103,7 +104,7 @@
   }
 }
 
-@keyframes glow {
+@keyframes headGlow {
   0% {
     transform: translate(-50%, -50%) scale(1);
   }
@@ -116,61 +117,17 @@
 }
 
 
-.example-enter {
-  opacity: 0.01;
-}
-
-.example-enter.example-enter-active {
-  opacity: 1;
-  transition: opacity 500ms ease-in;
-}
-
-.example-leave {
-  opacity: 1;
-}
-
-.example-leave.example-leave-active {
-  opacity: 0.01;
-  transition: opacity 300ms ease-in;
-}
-
 //enter是入场前的刹那（点击按钮），appear指页面第一次加载前的一刹那（自动）
-.fade-enter, .fade-appear {
-  opacity: .3;
+.headpoint_desc-enter, .headpoint_desc-appear {
+  opacity: 0;
 }
 
 //入场动画执行完毕后，保持状态
-.fade-enter-done {
+.headpoint_desc-enter-done {
   opacity: 1;
   transition: opacity 0.4s ease-in;
 }
 
-.btn{
-  position: absolute;
-  bottom: 0;
-  z-index: 19;
-}
-
-
-.fd-enter { 
-  opacity: 0; 
- 
-} 
- 
-.fd-enter-active { 
-  opacity: 1; 
-  transition: opacity 1500ms; 
-} 
- 
-.fd-exit { 
-  opacity: 1; 
-} 
- 
-.fd-exit-active { 
-  opacity: 0; 
-  transition: opacity 500ms; 
-  
-} 
 
 @keyframes fadeInOpacity {
 	0% {
