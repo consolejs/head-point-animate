@@ -14,9 +14,9 @@ code {
 }
 
 html {
-  background: #3d5f4e;
+  background: #000;
   background-size: 100%;
-  color: #e5e5e5;
+  /* color: #e5e5e5; */
 }
 
 html,
@@ -48,8 +48,10 @@ body {
 
 .lightup-btn .tx {
   display: inline-block;
-  padding: 0.5rem .12rem;
-  border-radius: 20%;
+  padding: 0.3rem .3rem;
+  border-radius: 10%;
   background-color: rgb(255 255 255 / 15%);
-  font-size: .28rem;
+  color:#FFF;
+  font-size: .32rem;
+
 }
