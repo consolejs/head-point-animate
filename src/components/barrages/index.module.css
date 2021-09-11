@@ -15,15 +15,38 @@
     padding: 0.1rem .2rem;
     border-radius: 0.02rem;
     background: url(../../static/barrage_cell.png) 100% no-repeat;
+    background-size: 100% 100%;
     color: #FFF;
     font-weight: 400;
     font-size: .24rem;
     font-family: 'PingFangSC-Regular', 'PingFang SC';
 }
+
+.content>div[data-track] div{
+  top: 0!important;
+  left: 0!important;
+  padding: 0!important;
+  width: auto !important;
+  height: auto !important;
+  border: 0 none!important;
+  background: none!important;
+  box-shadow: none!important;
+  color: #FFF!important;
+  font-size: 0.28rem!important;
+  transform: none!important;
+}
+
+.content>div[data-track] div > img{
+position: absolute!important;
+top: -0.13rem!important;
+left: -0.95rem!important;
+width: 0.6rem!important;
+height: 0.6rem!important;
+}
+
 .barrage-oper-wrap{
   display: flex;
   justify-content: space-around;
-  /* z-index: 150; */
 
 }
 .barrage-oper-item{

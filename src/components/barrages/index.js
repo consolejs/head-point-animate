@@ -56,9 +56,14 @@ export function Barrages(props) {
     setScreen(sc);
   }, [props.barrages]);
 
+  const info = {
+    msg: "6666",
+    head:"https://i.picsum.photos/id/935/100/100.jpg?hmac=bAIDye2mjE3efAINsxRsdIeRpCdQG1ub-xXEU4tFdq4",
+};
+
   // 发送弹幕
   const handleSend = (msg) => {
-    screen.push(msg, {
+    screen.push(info, {
       delay: 0
     })
   };
@@ -70,8 +75,7 @@ export function Barrages(props) {
         handleSend(msg);
         console.log('throtte', msg);
     }
-  }, 1000);
-
+  }, 1200);
 
 
 
