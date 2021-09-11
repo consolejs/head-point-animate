@@ -22,12 +22,13 @@ const throttleFn = (fn, delay) => {
 };
 
 export function Barrages(props) {
-  const { showBtn } = props; 
+  const { showBtn, userHead } = props; 
 
   // 弹幕屏幕
   const [screen, setScreen] = useState(null);
-  const maxSend = 6;
-  const btnCount = useRef(0);
+  const maxSend = 3;//最大发送次数
+  const btnFirstCount = useRef(0);
+  const btnSecondCount = useRef(0);
 
   useEffect(() => {
     // 给页面中某个元素初始化弹幕屏幕，一般为一个大区块
@@ -56,41 +57,52 @@ export function Barrages(props) {
     setScreen(sc);
   }, [props.barrages]);
 
-  const info = {
-    msg: "6666",
-    head:"https://i.picsum.photos/id/935/100/100.jpg?hmac=bAIDye2mjE3efAINsxRsdIeRpCdQG1ub-xXEU4tFdq4",
-};
 
   // 发送弹幕
-  const handleSend = (msg) => {
-    screen.push(info, {
+  const handleSend = (name, msg) => {
+    screen.push({
+        msg: msg,
+        head: userHead,
+    }, {
       delay: 0
     })
   };
 
   // 节流限制限制1s
- const throtteHandleSend= throttleFn((msg)=> {
-    btnCount.current++;
-    if(btnCount.current < maxSend){
-        handleSend(msg);
-        console.log('throtte', msg);
-    }
+ const throtteHandleSend= throttleFn((name,msg)=> {
+    console.log('我是', name)
+
+     if(name==="first"){
+        btnFirstCount.current++;
+        if(btnFirstCount.current <= maxSend){
+            handleSend(name, msg);
+            console.log('throtte', btnFirstCount.current);
+        }
+     }
+
+     if(name==="second"){
+        btnSecondCount.current++;
+        if(btnSecondCount.current <= maxSend){
+            handleSend(name, msg);
+            console.log('throtte', btnSecondCount.current);
+        }
+     }
   }, 1200);
 
 
 
   return (
-      <>
-      <div className={styles.h300}></div>
-    <div className={styles.wrap}>
-      <div className={['barrage_screen',`${styles.content}`].join(' ')} ></div>
-      {
-         ( !showBtn) ? null : <div className={styles['barrage-oper-wrap']}>
-          <div className={styles['barrage-oper-item']} onClick={(e) => {throtteHandleSend('欢迎回家')}} >欢迎回家</div>
-          <div className={styles['barrage-oper-item']} onClick={(e) => {throtteHandleSend('中国加油')}} >中国加油</div>
-       </div>
-      }
-    </div>
+    <>
+      <div style={{ height: '300px'}}></div>
+      <div className={styles.wrap}  style={{ backgroundColor: '#482020'}}>
+        <div className={['barrage_screen',`${styles.content}`].join(' ')} ></div>
+        {
+          ( !showBtn) ? null : <div className={styles['barrage-oper-wrap']}>
+            <div className={styles['barrage-oper-item']} onClick={() => {throtteHandleSend('first','欢迎回家')}} >欢迎回家</div>
+            <div className={styles['barrage-oper-item']} onClick={() => {throtteHandleSend('second','中国加油')}} >中国加油</div>
+        </div>
+        }
+      </div>
     </>
   );
 }

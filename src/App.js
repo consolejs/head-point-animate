@@ -1,7 +1,7 @@
 import {useState, useRef} from 'react';
 import  { HeadPoint } from "./components/headPoint/index";
 import  { Barrages } from "./components/barrages/index";
-// import MyAvatarPoint from "./components/myAvatarPoint/index";
+import MyAvatarPoint from "./components/myAvatarPoint/index";
 import "./index.css";
 
 export default function App() {
@@ -17,7 +17,7 @@ export default function App() {
 
   const updateChildState = () => {
 		// startToAnimation为头像组件暴露出的方法
-		// headPointRef.current.startToAnimation(userInfo);
+		headPointRef.current.startToAnimation(userInfo);
     setBtnShow(!btnShow)
     console.log(btnShow)
 	}

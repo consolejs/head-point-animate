@@ -14,15 +14,15 @@ code {
 }
 
 html {
-  background: #000;
-  background-size: 100%;
-  /* color: #e5e5e5; */
+  height: 100%;
 }
 
-html,
 body {
   overflow: hidden;
   height: 100%;
+  background-image: url(https://i.picsum.photos/id/4/600/900.jpg?hmac=M50GyFk82nRQaxx-A65fWvCqE-MHtVqmdpFfMobn7yI);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
 }
 
 #root {
