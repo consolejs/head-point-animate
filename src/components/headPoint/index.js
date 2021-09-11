@@ -16,6 +16,8 @@ let HeadPointApp = (props, ref) => {
   const [inProp, setInProp] = useState(false);
   const [rank, setRank] = useState(false);
 
+  const [test, setTest] = useState(false);
+
   const nodeRef = useRef(null);
   const duration = 200;
   const defaultStyle = {
@@ -55,15 +57,18 @@ let HeadPointApp = (props, ref) => {
 
   const getDomStr = (info) => {
     return (
-      <div className="head_point_wrap">
+      <div className={`head_point_wrap ${ test ?"head_point_exit":''}`}>
         <Transition
           in={inProp}
           timeout={duration}
           nodeRef={nodeRef}
           onEntered={() => {
             setTimeout(() => {
-              // console.log(0, "onEntered");
-              setUserInfo(!userInfo);
+              setTest(!test);
+              setTimeout(() => {
+                setUserInfo(!userInfo);
+                console.log(0, "onEntered");
+              }, 1000)
             }, 3000);
           }}
         >

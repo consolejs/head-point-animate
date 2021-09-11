@@ -119,6 +119,16 @@
   }
 }
 
+.head_point_exit{
+  opacity: 0;
+  transition: opacity .6s ease-in;
+  // .head_point_cnt{
+    // transform: scale(0.5);  
+    // transform-origin: 0 0;
+    // }
+  
+}
+
 @keyframes headRotate {
   0% {
     transform: rotateY(0deg);
