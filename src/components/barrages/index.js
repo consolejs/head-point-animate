@@ -34,9 +34,15 @@ export function Barrages(props) {
     // 给页面中某个元素初始化弹幕屏幕，一般为一个大区块
     let sc = new BulletScreen(".barrage_screen", {
       duration: 5,
-      loopCount: "infinite",
+      loopCount: "2",
       pauseOnHover: false,
-      trackHeight: 38
+      trackHeight: 38,
+      onStart: (el) =>{
+        console.log(11, el)
+      },
+      onEnd:(el) => {
+        console.log(22, el)
+      }
     });
 
     let barrages = props.barrages || defaultBarrages,
