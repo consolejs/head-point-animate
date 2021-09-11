@@ -30,37 +30,46 @@ export function Barrages(props) {
   const btnFirstCount = useRef(0);
   const btnSecondCount = useRef(0);
 
+
   useEffect(() => {
-    // 给页面中某个元素初始化弹幕屏幕，一般为一个大区块
-    let sc = new BulletScreen(".barrage_screen", {
-      duration: 5,
-      loopCount: "2",
-      pauseOnHover: false,
-      trackHeight: 38,
-      onStart: (el) =>{
-        console.log(11, el)
-      },
-      onEnd:(el) => {
-        console.log(22, el)
+    
+    const performBarrage = () => {
+      // 给页面中某个元素初始化弹幕屏幕，一般为一个大区块
+      let sc = new BulletScreen(".barrage_screen", {
+        duration: 5,
+        loopCount: 1,
+        pauseOnHover: false,
+        trackHeight: 38,
+        onEnd: () => {
+          // console.log('每执行1条结束后',  sc.bullets.length, sc.bullets);
+          if (sc.bullets.length === 1) {
+            // console.log("已清空~");
+            performBarrage();
+          }
+        },
+      });
+
+      let barrages = props.barrages || defaultBarrages,
+        count = 0;
+
+      function pushBarrage() {
+        if (barrages[count]) {
+          sc.push(barrages[count]);
+        }
+        count++;
+        if (count > barrages.length) {
+          clearInterval(timer);
+        }
       }
-    });
+      const timer = setInterval(() => {
+        pushBarrage();
+      }, 1000);
 
-    let barrages = props.barrages || defaultBarrages,
-      count = 0;
+      setScreen(sc);
+    };
 
-    function pushBarrage() {
-      if (barrages[count]) {
-        sc.push(barrages[count]);
-      }
-      count++;
-      if (count > barrages.length) clearInterval(timer);
-    }
+    performBarrage();
 
-    const timer = setInterval(() => {
-      pushBarrage();
-    }, 2000);
-
-    setScreen(sc);
   }, [props.barrages]);
 
 
@@ -74,15 +83,16 @@ export function Barrages(props) {
     })
   };
 
+
+  
   // 节流限制限制1s
  const throtteHandleSend= throttleFn((name,msg)=> {
-    console.log('我是', name)
 
      if(name==="first"){
         btnFirstCount.current++;
         if(btnFirstCount.current <= maxSend){
             handleSend(name, msg);
-            console.log('throtte', btnFirstCount.current);
+            // console.log('throtte', btnFirstCount.current);
         }
      }
 
@@ -90,11 +100,10 @@ export function Barrages(props) {
         btnSecondCount.current++;
         if(btnSecondCount.current <= maxSend){
             handleSend(name, msg);
-            console.log('throtte', btnSecondCount.current);
+            // console.log('throtte', btnSecondCount.current);
         }
      }
   }, 1200);
-
 
 
   return (
