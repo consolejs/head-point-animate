@@ -4,32 +4,21 @@ import styles from "./index.module.css";
 // import { isLogin } from "../../utils/login";
 // import StatusButton from '../status-button/status-button';
 
+// import Toast from "./toast";
+
 const defaultBarrages = [
   "欢迎回家👏👏",
   "中国加油🇨🇳🇨🇳",
   "欢迎回家👏👏",
 ];
 
-const throttleFn = (fn, delay) => {
-  let prevTime = Date.now();
-  return function() {
-    let curTime = Date.now();
-    if (curTime - prevTime > delay) {
-      fn.apply(this, arguments);
-      prevTime = curTime;
-    }
-  }
-};
 
 export function Barrages(props) {
   const { showBtn, userHead } = props; 
 
   // 弹幕屏幕
   const [screen, setScreen] = useState(null);
-  const maxSend = 3;//最大发送次数
-  const btnFirstCount = useRef(0);
-  const btnSecondCount = useRef(0);
-
+  // const [toast, setToast] = useState(false);
 
   useEffect(() => {
     
@@ -44,7 +33,7 @@ export function Barrages(props) {
           // console.log('每执行1条结束后',  sc.bullets.length, sc.bullets);
           if (sc.bullets.length === 1) {
             // console.log("已清空~");
-            performBarrage();
+            // performBarrage();
           }
         },
       });
@@ -58,12 +47,13 @@ export function Barrages(props) {
         }
         count++;
         if (count > barrages.length) {
-          clearInterval(timer);
+          // clearInterval(timer);
+          count=0;
         }
       }
-      const timer = setInterval(() => {
+      setInterval(() => {
         pushBarrage();
-      }, 1000);
+      }, 1500);
 
       setScreen(sc);
     };
@@ -72,9 +62,23 @@ export function Barrages(props) {
 
   }, [props.barrages]);
 
+  const throttleFn = (fn, delay) => {
+    let prevTime = Date.now();
+    return function() {
+      let curTime = Date.now();
+      if (curTime - prevTime > delay) {
+        fn.apply(this, arguments);
+        prevTime = curTime;
+        // setToast(false)
+      } else{
+        console.log('点击过快~', '调用Toast!');
+        // setToast(true);
+      }
+    }
+  };
 
   // 发送弹幕
-  const handleSend = (name, msg) => {
+  const handleSend = (msg) => {
     screen.push({
         msg: msg,
         head: userHead,
@@ -83,38 +87,23 @@ export function Barrages(props) {
     })
   };
 
-
   
   // 节流限制限制1s
- const throtteHandleSend= throttleFn((name,msg)=> {
-
-     if(name==="first"){
-        btnFirstCount.current++;
-        if(btnFirstCount.current <= maxSend){
-            handleSend(name, msg);
-            // console.log('throtte', btnFirstCount.current);
-        }
-     }
-
-     if(name==="second"){
-        btnSecondCount.current++;
-        if(btnSecondCount.current <= maxSend){
-            handleSend(name, msg);
-            // console.log('throtte', btnSecondCount.current);
-        }
-     }
-  }, 1200);
+ const throtteHandleSend= throttleFn((msg)=> {
+    handleSend(msg);
+  }, 1500);
 
 
   return (
     <>
-      <div style={{ height: '300px'}}></div>
+      <div style={{ height: '600px'}}></div>
+      {/* { toast ? <Toast className='toast'  content="点击过快~"  time='2000' /> : null } */}
       <div className={styles.wrap}  style={{ backgroundColor: '#482020'}}>
         <div className={['barrage_screen',`${styles.content}`].join(' ')} ></div>
         {
           ( !showBtn) ? null : <div className={styles['barrage-oper-wrap']}>
-            <div className={styles['barrage-oper-item']} onClick={() => {throtteHandleSend('first','欢迎回家')}} >欢迎回家</div>
-            <div className={styles['barrage-oper-item']} onClick={() => {throtteHandleSend('second','中国加油')}} >中国加油</div>
+            <div className={styles['barrage-oper-item']} onClick={() => {throtteHandleSend('欢迎回家')}} >欢迎回家</div>
+            <div className={styles['barrage-oper-item']} onClick={() => {throtteHandleSend('中国加油')}} >中国加油</div>
         </div>
         }
       </div>

@@ -1,0 +1,23 @@
+.cus_toast {
+  display: block;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 19;
+}
+.cus_toast_info {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: .10rem .20rem;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-size: .28rem;
+  // opacity: 1;
+  // transition: opacity 0.4s ease-in;
+}

@@ -1,7 +1,7 @@
 import {useState, useRef} from 'react';
 import  { HeadPoint } from "./components/headPoint/index";
 import  { Barrages } from "./components/barrages/index";
-import MyAvatarPoint from "./components/myAvatarPoint/index";
+// import MyAvatarPoint from "./components/myAvatarPoint/index";
 import "./index.css";
 
 export default function App() {
@@ -27,11 +27,11 @@ export default function App() {
       <HeadPoint ref={headPointRef} />
       {/* <MyAvatarPoint />  */}
       <Barrages showBtn={!btnShow} userHead={userInfo.src} />
-      <div className="lightup-btn">
+      {/* <div className="lightup-btn">
         <span className="tx" onClick={updateChildState}  style={{display: btnShow ? 'none' : 'block'}}>
           点亮画卷
         </span>
-      </div>
+      </div> */}
     </div>
   );
 }

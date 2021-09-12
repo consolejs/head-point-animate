@@ -33,7 +33,7 @@
     width: 2.04rem;
     height: 2.04rem;
     border-radius: 50%;
-    animation: headRotate 3s linear 1;
+    animation: headRotate 2s ease-in-out 1;
 
     transform-style: preserve-3d;
     img {
@@ -97,7 +97,7 @@
       filter: blur(18px);
       transition: 2s ease-in-out;
       transform-origin: 50%;
-      animation: headGlow 4s infinite;
+      animation: headGlow 4s 2;
     }
   }
   .name {
@@ -121,12 +121,7 @@
 
 .head_point_exit{
   opacity: 0;
-  transition: opacity .6s ease-in;
-  // .head_point_cnt{
-    // transform: scale(0.5);  
-    // transform-origin: 0 0;
-    // }
-  
+  transition: opacity .7s ease-in;
 }
 
 @keyframes headRotate {
@@ -137,10 +132,10 @@
     transform: rotateY(90deg);
   }
   50% {
-    transform: rotateY(-30deg);
+    transform: rotateY(-20deg);
   }
   75% {
-    transform: rotateY(30deg);
+    transform: rotateY(20deg);
   }
   100% {
     transform: rotateY(0deg);
@@ -152,7 +147,7 @@
     transform: translate(-50%, -50%) scale(1);
   }
   50% {
-    transform: translate(-50%, -50%) scale(1.6);
+    transform: translate(-50%, -50%) scale(1.8);
   }
   100% {
     transform: translate(-50%, -50%) scale(1);

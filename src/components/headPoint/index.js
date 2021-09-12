@@ -14,9 +14,8 @@ import "./index.scss";
 let HeadPointApp = (props, ref) => {
   const [userInfo, setUserInfo] = useState(false);
   const [inProp, setInProp] = useState(false);
+  const [exit, setExit] = useState(false);
   const [rank, setRank] = useState(false);
-
-  const [test, setTest] = useState(false);
 
   const nodeRef = useRef(null);
   const duration = 200;
@@ -35,7 +34,7 @@ let HeadPointApp = (props, ref) => {
   useImperativeHandle(ref, () => ({
     // startToAnimation,执行动画，暴露给点亮按钮
     startToAnimation: (passUserInfo) => {
-      console.log("传值用户数据", passUserInfo);
+      // console.log("传值用户数据", passUserInfo);
       setUserInfo(passUserInfo);
       setTimeout(() => {
         setInProp(!inProp);
@@ -57,19 +56,19 @@ let HeadPointApp = (props, ref) => {
 
   const getDomStr = (info) => {
     return (
-      <div className={`head_point_wrap ${ test ?"head_point_exit":''}`}>
+      <div className={`head_point_wrap ${ exit ?"head_point_exit":''}`}>
         <Transition
           in={inProp}
           timeout={duration}
           nodeRef={nodeRef}
           onEntered={() => {
             setTimeout(() => {
-              setTest(!test);
+              setExit(!exit);
               setTimeout(() => {
                 setUserInfo(!userInfo);
-                console.log(0, "onEntered");
-              }, 1000)
-            }, 3000);
+                // console.log(0, "onEntered");
+              }, 800)
+            }, 3500);
           }}
         >
           {(state) => {
@@ -108,7 +107,7 @@ let HeadPointApp = (props, ref) => {
             }}
             unmountOnExit
           >
-            {(state) => {
+            {() => {
               return (
                 <div ref={nodeRef}>
                   <div className="name">{info.nickname}</div>
