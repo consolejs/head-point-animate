@@ -33,7 +33,7 @@
     width: 2.04rem;
     height: 2.04rem;
     border-radius: 50%;
-    animation: headRotate 1200ms ease-in-out 1;
+    animation: headFadein 250ms ease-in 1, headRotate 1200ms ease-in-out 1;
 
     transform-style: preserve-3d;
     img {
@@ -124,6 +124,25 @@
   transition: opacity .75s ease-in;
   .head_point_cnt{
     display: none;
+  }
+}
+
+
+@keyframes headFadein {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 0.50;
+  }
+  75% {
+    opacity: 0.75;
+  }
+  100% {
+    opacity: 1;
   }
 }
 

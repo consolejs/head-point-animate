@@ -62,20 +62,28 @@ export function Barrages(props) {
 
   }, [props.barrages]);
 
-  const throttleFn = (fn, delay) => {
-    let prevTime = Date.now();
-    return function() {
-      let curTime = Date.now();
-      if (curTime - prevTime > delay) {
-        fn.apply(this, arguments);
-        prevTime = curTime;
-        // setToast(false)
-      } else{
-        console.log('点击过快~', '调用Toast!');
-        // setToast(true);
+  const throttleFn = (func, delay = 60, toast, ctx) => {
+    let previous = null;
+    let t = null;
+    return (...args) => {
+      let now = +new Date();
+      // !previous -> 捕获第一次
+      if (!previous || now - previous > delay) {
+        previous = now;
+        clearTimeout(t);
+        func.apply(ctx, args);
+        return;
+      } else {
+        toast.apply(ctx, args);
       }
-    }
-  };
+      // 捕获最后一次
+      clearTimeout(t);
+      t = setTimeout(() => {
+        previous = null;
+        func.apply(ctx, args);
+      }, delay);
+    };
+  }
 
   // 发送弹幕
   const handleSend = (msg) => {
@@ -86,12 +94,13 @@ export function Barrages(props) {
       delay: 0
     })
   };
-
   
   // 节流限制限制1s
  const throtteHandleSend= throttleFn((msg)=> {
     handleSend(msg);
-  }, 1500);
+  }, 3000, ()=>{
+    console.log('调用toast~')
+  });
 
 
   return (
