@@ -96,7 +96,7 @@ export function Barrages(props) {
 
   return (
     <>
-      <div style={{ height: '600px'}}></div>
+      <div style={{ height: '500px'}}></div>
       {/* { toast ? <Toast className='toast'  content="点击过快~"  time='2000' /> : null } */}
       <div className={styles.wrap}  style={{ backgroundColor: '#482020'}}>
         <div className={['barrage_screen',`${styles.content}`].join(' ')} ></div>
