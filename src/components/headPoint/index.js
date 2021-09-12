@@ -15,7 +15,6 @@ let HeadPointApp = (props, ref) => {
   const [userInfo, setUserInfo] = useState(false);
   const [inProp, setInProp] = useState(false);
   const [exit, setExit] = useState(false);
-  const [rank, setRank] = useState(false);
 
   const nodeRef = useRef(null);
   const duration = 200;
@@ -68,7 +67,7 @@ let HeadPointApp = (props, ref) => {
                 setUserInfo(!userInfo);
                 // console.log(0, "onEntered");
               }, 800)
-            }, 3500);
+            }, 2500);
           }}
         >
           {(state) => {
@@ -99,19 +98,13 @@ let HeadPointApp = (props, ref) => {
             classNames="headpoint_desc"
             timeout={200}
             nodeRef={nodeRef}
-            onEntered={(el) => {
-              // console.log(1,'onEntered')
-              setTimeout(() => {
-                setRank(!rank);
-              }, 500);
-            }}
             unmountOnExit
           >
             {() => {
               return (
                 <div ref={nodeRef}>
                   <div className="name">{info.nickname}</div>
-                  {rank ? getRankDesc(info.number) : null}
+                  {getRankDesc(info.number)}
                 </div>
               );
             }}

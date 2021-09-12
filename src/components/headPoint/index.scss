@@ -10,7 +10,7 @@
     z-index: 4;
     width: 100vw;
     height: 100vh;
-    background: rgba(17, 17, 19, 0.94);
+    background: rgba(0, 0, 0, 0.9);
     opacity: 0;
   }
 }
@@ -33,7 +33,7 @@
     width: 2.04rem;
     height: 2.04rem;
     border-radius: 50%;
-    animation: headRotate 2s ease-in-out 1;
+    animation: headRotate 1200ms ease-in-out 1;
 
     transform-style: preserve-3d;
     img {
@@ -121,7 +121,10 @@
 
 .head_point_exit{
   opacity: 0;
-  transition: opacity .7s ease-in;
+  transition: opacity .75s ease-in;
+  .head_point_cnt{
+    display: none;
+  }
 }
 
 @keyframes headRotate {
@@ -132,10 +135,10 @@
     transform: rotateY(90deg);
   }
   50% {
-    transform: rotateY(-20deg);
+    transform: rotateY(-10deg);
   }
   75% {
-    transform: rotateY(20deg);
+    transform: rotateY(10deg);
   }
   100% {
     transform: rotateY(0deg);
