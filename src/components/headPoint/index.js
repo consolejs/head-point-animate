@@ -44,11 +44,7 @@ let HeadPointApp = (props, ref) => {
   const getRankDesc = (count) => {
     return (
       <div className="desc">
-        你是第
-        <Rank count={count} />
-        位点亮画卷，
-        <br />
-        欢迎一起回家
+        我是第<Rank count={count} />名助力者，<br />一起参与点亮欢迎画卷
       </div>
     );
   };
