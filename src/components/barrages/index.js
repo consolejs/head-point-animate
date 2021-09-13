@@ -3,6 +3,7 @@ import BulletScreen from "rc-bullets";
 import styles from "./index.module.css";
 // import { isLogin } from "../../utils/login";
 // import StatusButton from '../status-button/status-button';
+import StatusButton from '../status-button/status-button';
 
 // import Toast from "./toast";
 
@@ -111,8 +112,8 @@ export function Barrages(props) {
         <div className={['barrage_screen',`${styles.content}`].join(' ')}></div>
         {
           ( !showBtn) ? null : <div className={styles['barrage-oper-wrap']} style={{ backgroundColor: '#3c2f2f'}}>
-            <div className={styles['barrage-oper-item']} onClick={() => {throtteHandleSend('欢迎回家👏👏')}} >欢迎回家</div>
-            <div className={styles['barrage-oper-item']} onClick={() => {throtteHandleSend('中国加油💪🏻💪🏻')}} >中国加油</div>
+            <StatusButton><div className={styles['barrage-oper-item']} onClick={() => {throtteHandleSend('欢迎回家👏👏')}} >欢迎回家</div></StatusButton>
+            <StatusButton><div className={styles['barrage-oper-item']} onClick={() => {throtteHandleSend('中国加油💪🏻💪🏻')}} >中国加油</div></StatusButton>
         </div>
         }
       </div>
