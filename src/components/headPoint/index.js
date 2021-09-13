@@ -44,7 +44,7 @@ let HeadPointApp = (props, ref) => {
   const getRankDesc = (count) => {
     return (
       <div className="desc">
-        我是第<Rank count={count} />名助力者，<br />一起参与点亮欢迎画卷
+        我是第<Rank count={count} />名助力者，<br />一起参与点亮欢迎画卷吧！
       </div>
     );
   };
@@ -58,9 +58,9 @@ let HeadPointApp = (props, ref) => {
           nodeRef={nodeRef}
           onEntered={() => {
             setTimeout(() => {
-              setExit(!exit);
+              // setExit(!exit);
               setTimeout(() => {
-                setUserInfo(!userInfo);
+                // setUserInfo(!userInfo);
                 // console.log(0, "onEntered");
               }, 800)
             }, 2500);

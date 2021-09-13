@@ -8,7 +8,7 @@ import styles from "./index.module.css";
 
 const defaultBarrages = [
   "欢迎回家👏👏",
-  "中国加油🇨🇳🇨🇳",
+  "中国加油💪🏻💪🏻",
   "欢迎回家👏👏",
 ];
 
@@ -25,10 +25,10 @@ export function Barrages(props) {
     const performBarrage = () => {
       // 给页面中某个元素初始化弹幕屏幕，一般为一个大区块
       let sc = new BulletScreen(".barrage_screen", {
-        duration: 5,
+        duration: 4,
         loopCount: 1,
         pauseOnHover: false,
-        trackHeight: 38,
+        trackHeight: 26,
         onEnd: () => {
           // console.log('每执行1条结束后',  sc.bullets.length, sc.bullets);
           if (sc.bullets.length === 1) {
@@ -53,7 +53,7 @@ export function Barrages(props) {
       }
       setInterval(() => {
         pushBarrage();
-      }, 1500);
+      }, 1800);
 
       setScreen(sc);
     };
@@ -107,12 +107,12 @@ export function Barrages(props) {
     <>
       <div style={{ height: '500px'}}></div>
       {/* { toast ? <Toast className='toast'  content="点击过快~"  time='2000' /> : null } */}
-      <div className={styles.wrap}  style={{ backgroundColor: '#482020'}}>
-        <div className={['barrage_screen',`${styles.content}`].join(' ')} ></div>
+      <div className={styles.wrap}  >
+        <div className={['barrage_screen',`${styles.content}`].join(' ')}></div>
         {
-          ( !showBtn) ? null : <div className={styles['barrage-oper-wrap']}>
-            <div className={styles['barrage-oper-item']} onClick={() => {throtteHandleSend('欢迎回家')}} >欢迎回家</div>
-            <div className={styles['barrage-oper-item']} onClick={() => {throtteHandleSend('中国加油')}} >中国加油</div>
+          ( !showBtn) ? null : <div className={styles['barrage-oper-wrap']} style={{ backgroundColor: '#3c2f2f'}}>
+            <div className={styles['barrage-oper-item']} onClick={() => {throtteHandleSend('欢迎回家👏👏')}} >欢迎回家</div>
+            <div className={styles['barrage-oper-item']} onClick={() => {throtteHandleSend('中国加油💪🏻💪🏻')}} >中国加油</div>
         </div>
         }
       </div>
