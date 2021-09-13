@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id='test'></div>
+
+    <div id='aaa'>aaaa</div>
+
+    <script>
+        var el = document.getElementById('test'),
+            aaa = document.getElementById('aaa'),
+            page = 0,
+            Timer;
+        function auto() {
+            Timer = setTimeout(function () {
+                page++;
+                el.innerHTML = page;
+                auto();
+            }, 1000)
+        }
+        auto();
+        window.onblur = function () {
+            if (Timer) clearTimeout(Timer);
+            aaa.innerHTML = 'blur clear'
+        }
+        window.onfocus = function () {
+            auto();
+            aaa.innerHTML = 'focus auto'
+        }
+    </script>
+    <div id=”test”></div>
+    <div id=”aaa”><a href=”/”>aaaaaa</a></div>
+    <script>
+       var el = document.getElementById('test'),
+            aaa = document.getElementById('aaa'),
+            page = 0,
+            Timer;
+
+        function auto() {
+            Timer = setTimeout(function () {
+                page++;
+                el.innerHTML = page;
+                auto();
+            }, 1000)
+        }
+        auto();
+        window.onblur = function () {
+            if (Timer) clearTimeout(Timer);
+            aaa.innerHTML = 'blur clear'
+        }
+        window.onfocus = function () {
+            auto();
+            aaa.innerHTML = 'focus auto'
+        }
+
+        /***************************************/
+        var backUpdate = function (fn) {
+            var hiddenKey = 'hidden' in document ? 'hidden' : ('webkitHidden' in document ? 'webkitHidden' : '');
+            var time = +new Date();
+            if (hiddenKey === '' || typeof fn != 'function') return;
+
+            if ('onpageshow' in window) {
+                window.addEventListener('pageshow', function (e) {
+                    e.persisted && fn();
+                });
+            } else {
+                setInterval(function () {
+                    +new Date() - time > 3e3 && !document[hiddenKey] && fn();
+                    time = +new Date();
+                }, 15e2);
+            }
+        };
+
+
+
+        backUpdate(setInterval(() => {
+            console.log('onpageshow' in window)
+        }, 1000))
+    </script>
+
+</body>
+
+</html>

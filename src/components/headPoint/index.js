@@ -79,32 +79,34 @@ let HeadPointApp = (props, ref) => {
           }}
         </Transition>
         <div className="head_point_cnt">
-          <div className="pic">
-          <img className="back" src={info.src} alt="" />
-          <img className="middle m1" src={info.src} alt="" />
-          <img className="middle m2" src={info.src} alt="" />
-          <img className="middle m3" src={info.src} alt="" />
-          <img className="middle m4" src={info.src} alt="" />
-          <img className="middle m5" src={info.src} alt="" />
-          <img className="middle m6" src={info.src} alt="" />
-          <img className="front" src={info.src} alt="" />
+          <div className="inner">
+            <div className="pic">
+              <img className="back" src={info.src} alt="" />
+              <img className="middle m1" src={info.src} alt="" />
+              <img className="middle m2" src={info.src} alt="" />
+              <img className="middle m3" src={info.src} alt="" />
+              <img className="middle m4" src={info.src} alt="" />
+              <img className="middle m5" src={info.src} alt="" />
+              <img className="middle m6" src={info.src} alt="" />
+              <img className="front" src={info.src} alt="" />
+            </div>
+            <CSSTransition
+              in={inProp}
+              classNames="headpoint_desc"
+              timeout={200}
+              nodeRef={nodeRef}
+              unmountOnExit
+            >
+              {() => {
+                return (
+                  <div ref={nodeRef}>
+                    <div className="name">{info.nickname}</div>
+                    {getRankDesc(info.number)}
+                  </div>
+                );
+              }}
+            </CSSTransition>
           </div>
-          <CSSTransition
-            in={inProp}
-            classNames="headpoint_desc"
-            timeout={200}
-            nodeRef={nodeRef}
-            unmountOnExit
-          >
-            {() => {
-              return (
-                <div ref={nodeRef}>
-                  <div className="name">{info.nickname}</div>
-                  {getRankDesc(info.number)}
-                </div>
-              );
-            }}
-          </CSSTransition>
         </div>
       </div>
     );

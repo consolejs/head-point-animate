@@ -56,7 +56,7 @@
         background-size: 100% auto;
         background-image: image-set( url(../../static/avatar_point_bg.png) 1x, url(../../static/avatar_point_bg@2x.png) 2x, url(../../static/avatar_point_bg@3x.png) 3x);
         background-image: -webkit-image-set( url(../../static/avatar_point_bg.png) 1x, url(../../static/avatar_point_bg@2x.png) 2x, url(../../static/avatar_point_bg@3x.png) 3x);
-        animation: avatarFade .4s 0s 1, avatarBounce 1s .2s 1;/*依次: 动画名字， 动画播放时间，延迟时间，播放次数*/
+        animation: avatarFade .4s 0s 1, avatarBounce 1s .2s 10;/*依次: 动画名字， 动画播放时间，延迟时间，播放次数*/
     }
     .pic {
         overflow: hidden;
