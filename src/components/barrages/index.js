@@ -8,9 +8,12 @@ import StatusButton from '../status-button/status-button';
 // import Toast from "./toast";
 
 const defaultBarrages = [
-  "欢迎回家👏👏",
+  "欢迎英雄回家👏👏",
   "中国加油💪🏻💪🏻",
-  "欢迎回家👏👏",
+  "欢迎英雄回家🌏🌏",
+  "欢迎英雄回家👏👏",
+  "中国加油💪🏻💪🏻",
+  "欢迎英雄回家🌏🌏",
 ];
 
 
@@ -26,7 +29,7 @@ export function Barrages(props) {
     const performBarrage = () => {
       // 给页面中某个元素初始化弹幕屏幕，一般为一个大区块
       let sc = new BulletScreen(".barrage_screen", {
-        duration: 4,
+        duration: 5,
         loopCount: 1,
         pauseOnHover: false,
         trackHeight: 26,
@@ -54,7 +57,7 @@ export function Barrages(props) {
       }
       setInterval(() => {
         pushBarrage();
-      }, 1800);
+      }, 1600);
 
       setScreen(sc);
     };
