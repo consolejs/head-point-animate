@@ -29,6 +29,7 @@ export function Barrages(props) {
     const performBarrage = () => {
       // 给页面中某个元素初始化弹幕屏幕，一般为一个大区块
       let sc = new BulletScreen(".barrage_screen", {
+        // top: '.125rem',
         duration: 5,
         loopCount: 1,
         pauseOnHover: false,
@@ -57,13 +58,28 @@ export function Barrages(props) {
       }
       setInterval(() => {
         pushBarrage();
-      }, 1600);
+      }, 1400);
 
       setScreen(sc);
+
+      //弹幕在当前tab窗口切换时，需要清空，避免setInterval延时问题
+      document.addEventListener('visibilitychange', startBarrage);
+      function startBarrage() {
+        if (document.visibilityState === 'hidden') {
+          sc.clear()
+        } else if (document.visibilityState === 'visible') {
+          sc.clear()
+        }
+      }
+
     };
 
     performBarrage();
+    
+    
 
+   
+    
   }, [props.barrages]);
 
   const throttleFn = (func, delay = 60, toast, ctx) => {

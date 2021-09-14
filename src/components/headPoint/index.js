@@ -58,9 +58,9 @@ let HeadPointApp = (props, ref) => {
           nodeRef={nodeRef}
           onEntered={() => {
             setTimeout(() => {
-              // setExit(!exit);
+              setExit(!exit);
               setTimeout(() => {
-                // setUserInfo(!userInfo);
+                setUserInfo(!userInfo);
                 // console.log(0, "onEntered");
               }, 800)
             }, 2500);
