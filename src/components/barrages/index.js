@@ -108,10 +108,10 @@ export function Barrages(props) {
     <>
       <div style={{ height: '500px'}}></div>
       {/* { toast ? <Toast className='toast'  content="点击过快~"  time='2000' /> : null } */}
-      <div className={styles.wrap}  >
+      <div className={styles.wrap}  style={{ backgroundColor: '#3c2f2f'}}>
         <div className={['barrage_screen',`${styles.content}`].join(' ')}></div>
         {
-          ( !showBtn) ? null : <div className={styles['barrage-oper-wrap']} style={{ backgroundColor: '#3c2f2f'}}>
+          ( !showBtn) ? null : <div className={styles['barrage-oper-wrap']} >
             <StatusButton><div className={styles['barrage-oper-item']} onClick={() => {throtteHandleSend('欢迎回家👏👏')}} >欢迎回家</div></StatusButton>
             <StatusButton><div className={styles['barrage-oper-item']} onClick={() => {throtteHandleSend('中国加油💪🏻💪🏻')}} >中国加油</div></StatusButton>
         </div>

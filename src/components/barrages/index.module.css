@@ -58,6 +58,7 @@
 }
 
 .barrage-oper-item {
+  position: relative;
   width: 2.83rem;
   height: 0.88rem;
   background-image: url(../../static/barrage_btn.png);
@@ -75,4 +76,24 @@
   font-weight: 500;
   color: #FFFFFF;
   text-shadow: 0px 0px 30px rgba(141, 235, 255, 0.8);
+}
+
+.barrage-oper-item::before{
+  content: ""; 
+  display: block;
+  position: absolute; 
+  left: 0;
+  top: 0;
+  -webkit-transform: translate(-44%, -44%);
+  -moz-transform: translate(-44%, -44%);
+  transform: translate(-44%, -44%);
+  width: .69rem;
+  height: .73rem;
+  overflow: hidden;
+  background-image: url(../../static/btn_light_spot.png);
+  background-position: center;
+  background-image: image-set( url(../../static/btn_light_spot.png) 1x, url(../../static/btn_light_spot@2x.png) 2x);
+  background-image: -webkit-image-set( url(../../static/btn_light_spot.png) 1x, url(../../static/btn_light_spot@2x.png) 2x);
+  background-size: 100% auto;
+  background-repeat: no-repeat;
 }

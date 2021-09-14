@@ -9,81 +9,115 @@
 </head>
 
 <body>
+    <div id="timeLeft"></div> 
 
     <div id='test'></div>
 
     <div id='aaa'>aaaa</div>
 
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+
+
     <script>
-        var el = document.getElementById('test'),
-            aaa = document.getElementById('aaa'),
-            page = 0,
-            Timer;
-        function auto() {
-            Timer = setTimeout(function () {
-                page++;
-                el.innerHTML = page;
-                auto();
-            }, 1000)
-        }
-        auto();
-        window.onblur = function () {
-            if (Timer) clearTimeout(Timer);
-            aaa.innerHTML = 'blur clear'
-        }
-        window.onfocus = function () {
-            auto();
-            aaa.innerHTML = 'focus auto'
-        }
+        // var el = document.getElementById('test'),
+        //     aaa = document.getElementById('aaa'),
+        //     page = 0,
+        //     Timer;
+        // function auto() {
+        //     Timer = setTimeout(function () {
+        //         page++;
+        //         el.innerHTML = page;
+        //         auto();
+        //     }, 1000)
+        // }
+        // auto();
+        // window.onblur = function () {
+        //     if (Timer) clearTimeout(Timer);
+        //     aaa.innerHTML = 'blur clear'
+        // }
+        // window.onfocus = function () {
+        //     auto();
+        //     aaa.innerHTML = 'focus auto'
+        // }
     </script>
+
+
     <div id=”test”></div>
     <div id=”aaa”><a href=”/”>aaaaaa</a></div>
     <script>
-       var el = document.getElementById('test'),
-            aaa = document.getElementById('aaa'),
-            page = 0,
-            Timer;
+    //    var el = document.getElementById('test'),
+    //         aaa = document.getElementById('aaa'),
+    //         page = 0,
+    //         Timer;
 
-        function auto() {
-            Timer = setTimeout(function () {
-                page++;
-                el.innerHTML = page;
-                auto();
-            }, 1000)
-        }
-        auto();
-        window.onblur = function () {
-            if (Timer) clearTimeout(Timer);
-            aaa.innerHTML = 'blur clear'
-        }
-        window.onfocus = function () {
-            auto();
-            aaa.innerHTML = 'focus auto'
-        }
+    //     function auto() {
+    //         Timer = setTimeout(function () {
+    //             page++;
+    //             el.innerHTML = page;
+    //             auto();
+    //         }, 1000)
+    //     }
+    //     auto();
+    //     window.onblur = function () {
+    //         if (Timer) clearTimeout(Timer);
+    //         aaa.innerHTML = 'blur clear'
+    //     }
+    //     window.onfocus = function () {
+    //         auto();
+    //         aaa.innerHTML = 'focus auto'
+    //     }
 
-        /***************************************/
-        var backUpdate = function (fn) {
-            var hiddenKey = 'hidden' in document ? 'hidden' : ('webkitHidden' in document ? 'webkitHidden' : '');
-            var time = +new Date();
-            if (hiddenKey === '' || typeof fn != 'function') return;
+    //     /***************************************/
+    //     var backUpdate = function (fn) {
+    //         var hiddenKey = 'hidden' in document ? 'hidden' : ('webkitHidden' in document ? 'webkitHidden' : '');
+    //         var time = +new Date();
+    //         if (hiddenKey === '' || typeof fn != 'function') return;
 
-            if ('onpageshow' in window) {
-                window.addEventListener('pageshow', function (e) {
-                    e.persisted && fn();
-                });
-            } else {
-                setInterval(function () {
-                    +new Date() - time > 3e3 && !document[hiddenKey] && fn();
-                    time = +new Date();
-                }, 15e2);
-            }
-        };
+    //         if ('onpageshow' in window) {
+    //             window.addEventListener('pageshow', function (e) {
+    //                 e.persisted && fn();
+    //             });
+    //         } else {
+    //             setInterval(function () {
+    //                 +new Date() - time > 3e3 && !document[hiddenKey] && fn();
+    //                 time = +new Date();
+    //             }, 15e2);
+    //         }
+    //     };
 
 
 
-        backUpdate(setInterval(() => {
-            console.log('onpageshow' in window)
-        }, 1000))
+    //     backUpdate(setInterval(() => {
+    //         console.log('onpageshow' in window)
+    //     }, 1000))
+
+
+       
+    </script>
+    <input type="text" id="hiddenInput">
+<script>
+
+var iput=document.getElementById("hiddenInput"),
+   count=1
+   ;
+function check(){
+         count++;
+         if(count%2===0){
+           iput.focus();
+         }
+         else{
+           iput.blur();
+         }
+         iput.value=count;  
+         if(count>3){
+        //    location.href="http://Nirwana.com";
+         }              
+         setTimeout(function(){check()},1000);
+}   
+iput.onblur=function(){count=1}
+iput.onfocus=function(){count=1}
+check();
+
     </script>
 
 </body>
