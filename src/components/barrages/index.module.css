@@ -39,41 +39,43 @@
 }
 
 .content>div[data-track] div>img {
-  position: absolute!important;
-  top: -0.12rem!important;
-  left: -0.82rem!important;
-  width: 0.5rem!important;
-  height: 0.5rem!important;
-  border-radius: 50%!important;
-  border:1px solid!important;
-  border-color:#5990CF #B35951 #B35951 #5990CF !important;
+  position: absolute !important;
+  top: -0.075rem !important;
+  left: -0.77rem !important;
+  width: 0.46rem !important;
+  height: 0.46rem !important;
+  border-radius: 50% !important;
+  border: 1px solid !important;
+  border-color: #5990CF #B35951 #B35951 #5990CF !important;
 }
 
 .barrage-oper-wrap {
   display: flex;
-  justify-content: space-around;
-  padding: 0% 7%;
+  position: relative;
+  justify-content: center;
+  margin-top: 0.8rem;
+  margin-bottom: 0.8rem;
 }
 
 .barrage-oper-item {
-  position: relative;
-  width: 2.83rem;
-  height: 0.88rem;
-  background-image: url(../../static/barrage_btn.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-image: image-set( url(../../static/barrage_btn.png) 1x, url(../../static/barrage_btn@2x.png) 2x);
-  background-image: -webkit-image-set( url(../../static/barrage_btn.png) 1x, url(../../static/barrage_btn@2x.png) 2x);
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  text-align: center;
-  font-size: 0.36rem;
-  line-height: 0.88rem;
-  font-size: .36rem;
-  font-family: PingFangSC-Medium, PingFang SC;
-  font-weight: 500;
-  color: #FFFFFF;
-  text-shadow: 0px 0px 30px rgba(141, 235, 255, 0.8);
+position: relative;
+width: 2.83rem;
+height: 0.88rem;
+background-image: url(../../static/barrage_btn.png);
+background-position: center;
+background-repeat: no-repeat;
+background-image: image-set( url(../../static/barrage_btn.png) 1x, url(../../static/barrage_btn@2x.png) 2x);
+background-image: -webkit-image-set( url(../../static/barrage_btn.png) 1x, url(../../static/barrage_btn@2x.png) 2x);
+background-size: 100% 100%;
+background-repeat: no-repeat;
+text-align: center;
+font-size: 0.36rem;
+line-height: 0.88rem;
+font-size: .36rem;
+font-family: PingFangSC-Medium, PingFang SC;
+font-weight: 500;
+color: #FFFFFF;
+text-shadow: 0px 0px 30px rgba(141, 235, 255, 0.8);
 }
 
 .barrage-oper-item::before{
@@ -82,9 +84,11 @@
   position: absolute; 
   left: 0;
   top: 0;
+  z-index: 9;
   -webkit-transform: translate(-44%, -44%);
   -moz-transform: translate(-44%, -44%);
   transform: translate(-44%, -44%);
+  
   width: .69rem;
   height: .73rem;
   overflow: hidden;

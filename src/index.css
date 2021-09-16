@@ -42,9 +42,10 @@ body {
 .lightup-btn {
   position: absolute;
   bottom: 8%;
-  left: 45%;
+  left: 50%;
   z-index: 11;
   line-height: .12rem;
+  transform: translate(-50%, 0);
 }
 
 .lightup-btn .tx {

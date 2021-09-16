@@ -131,7 +131,7 @@ export function Barrages(props) {
         <div className={['barrage_screen',`${styles.content}`].join(' ')}></div>
         {
           ( !showBtn) ? null : <div className={styles['barrage-oper-wrap']} >
-            <StatusButton><div className={styles['barrage-oper-item']} onClick={() => {throtteHandleSend('欢迎英雄回家🌏🌏')}} >欢迎回家</div></StatusButton>
+            <StatusButton><div style={{ marginRight: '.3rem' }} className={styles['barrage-oper-item']} onClick={() => {throtteHandleSend('欢迎英雄回家🌏🌏')}} >欢迎回家</div></StatusButton>
             <StatusButton><div className={styles['barrage-oper-item']} onClick={() => {throtteHandleSend('中国加油💪🏻💪🏻')}} >中国加油</div></StatusButton>
         </div>
         }
