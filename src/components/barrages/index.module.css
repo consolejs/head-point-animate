@@ -7,19 +7,15 @@
 
 .content {
   width: 100%;
-  height: 16vh;
+  height: 11vh;
   padding: 0.125rem 0;
   box-sizing: border-box;
 }
 
 .content>div[data-track] {
   padding: 0.1rem .2rem;
-  border-radius: 0.04rem;
-  /* background: url(../../static/barrage_cell.png) 100% no-repeat; */
-  /* background: linear-gradient(285deg, #5990CF 0%, #5D5D89 49%, #B35951 100%); */
-  /* background-size: 100% 100%; */
-  background-color:rgba(17, 17, 19, 0.7);
-  
+  background: url(../../static/barrage_cell.png) 100% no-repeat;
+  background-size: 100% 100%;
   color: #FFF;
   font-weight: 400;
   font-size: .24rem;

@@ -8,12 +8,12 @@ import StatusButton from '../status-button/status-button';
 // import Toast from "./toast";
 
 const defaultBarrages = [
-  "欢迎英雄回家👏👏",
+  "欢迎英雄回家🌏🌏",
   "中国加油💪🏻💪🏻",
   "欢迎英雄回家🌏🌏",
-  "欢迎英雄回家👏👏",
   "中国加油💪🏻💪🏻",
   "欢迎英雄回家🌏🌏",
+  "中国加油💪🏻💪🏻"
 ];
 
 
@@ -58,7 +58,7 @@ export function Barrages(props) {
       }
       setInterval(() => {
         pushBarrage();
-      }, 1400);
+      }, 1200);
 
       setScreen(sc);
 
@@ -131,7 +131,7 @@ export function Barrages(props) {
         <div className={['barrage_screen',`${styles.content}`].join(' ')}></div>
         {
           ( !showBtn) ? null : <div className={styles['barrage-oper-wrap']} >
-            <StatusButton><div className={styles['barrage-oper-item']} onClick={() => {throtteHandleSend('欢迎回家👏👏')}} >欢迎回家</div></StatusButton>
+            <StatusButton><div className={styles['barrage-oper-item']} onClick={() => {throtteHandleSend('欢迎英雄回家🌏🌏')}} >欢迎回家</div></StatusButton>
             <StatusButton><div className={styles['barrage-oper-item']} onClick={() => {throtteHandleSend('中国加油💪🏻💪🏻')}} >中国加油</div></StatusButton>
         </div>
         }

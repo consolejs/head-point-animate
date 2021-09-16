@@ -35,7 +35,7 @@
     position: relative;
     margin: 0 auto 0.25rem;
     width: 2.04rem;
-    height: 2.2rem;
+    height: 2.04rem;
     
     border-radius: 50%;
     animation: headFadein 250ms ease-in 1, headRotate 1000ms ease-in-out 1;
@@ -104,6 +104,9 @@
       transition: 2s ease-in-out;
       transform-origin: 50%;
       animation: headGlow 4s 2;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
     }
   }
   .name {
