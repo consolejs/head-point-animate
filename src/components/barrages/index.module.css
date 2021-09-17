@@ -8,8 +8,8 @@
 .content {
   width: 100%;
   height: 11vh;
-  padding: 0.125rem 0;
   box-sizing: border-box;
+  min-height: 88px;
 }
 
 .content>div[data-track] {

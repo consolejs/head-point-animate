@@ -58,7 +58,7 @@ export function Barrages(props) {
       }
       setInterval(() => {
         pushBarrage();
-      }, 1200);
+      }, 800);
 
       setScreen(sc);
 
@@ -122,7 +122,7 @@ export function Barrages(props) {
     console.log('调用toast~')
   });
 
-
+ 
   return (
     <>
       <div style={{ height: '500px'}}></div>
